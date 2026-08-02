@@ -3,18 +3,22 @@
 Single self-contained `index.html`. No build step, no dependencies, no JavaScript.
 Drop it on GitHub Pages and it works.
 
-## Fill these in before you publish
+## Already published
 
-Open `index.html` and search for each of these:
+The site is live at https://ashgasparyancs.github.io/vhs-transfers/ with real
+contact details filled in. Nothing needs replacing.
 
-| Find | Replace with |
-| --- | --- |
-| `(555) 000-0000` | Your real phone number (appears once as display text) |
-| `+15550000000` | Same number, digits only, for the `tel:` link so tapping it dials |
-| `Your City & surrounding area` | The area you'll drive to for free pickup |
-| `ashgasparyan04@gmail.com` | Already set. Change it if you want a separate business address |
+If any of these change, they each appear in more than one place, so grep the
+whole directory rather than editing one file:
 
-Also consider replacing the `<title>` if you settle on a business name.
+| Detail | Current | Where |
+| --- | --- | --- |
+| Phone | (818) 732-8094 | `index.html` display text AND the `tel:+18187328094` link |
+| Email | ashgasparyan04+vhs@gmail.com | `index.html` and `intake-form.html` |
+| Area | Los Angeles & surrounding | `index.html` contact card, title, meta tags |
+| Prices | see `PROJECT-PRIMER.md` | `index.html` and `intake-form.html` both |
+
+Consider setting a business name in the `<title>` if one is ever chosen.
 
 ## Publish it on GitHub Pages, free
 

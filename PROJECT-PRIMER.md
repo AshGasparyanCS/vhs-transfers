@@ -8,9 +8,11 @@ Last updated: 2026-08-02
 ## What this is
 
 A small side business converting people's VHS and VHS-C tapes to digital files,
-run out of Los Angeles. One person operation. Free pickup and return at the
-customer's door, which is the main selling point since mail-in competitors
-physically cannot offer it.
+run out of Los Angeles. One person operation. Pickup and return at the customer's
+door is offered but is NOT advertised as free, the site says "contact for pickup
+and return" so distance can be judged case by case. LA is large and blanket free
+pickup everywhere was too much of a commitment. It is still the main
+differentiator since mail-in competitors physically cannot offer it at all.
 
 Owner: Ash Gasparyan, GitHub `AshGasparyanCS`.
 
@@ -110,16 +112,16 @@ unattended machine time, so flat rate is honest, not a loss leader.
 
 ### Flash drive economics
 
-Bulk prices found, all 5 packs:
+Bulk sources found:
 
-| Drive | Pack price | Cost each | Per GB | Holds | Sells for | Margin |
-| --- | --- | --- | --- | --- | --- | --- |
-| 32GB | $37 | $7.40 | $0.23 | ~20 hrs, 5 tapes | not stocked | n/a |
-| 64GB | $45 | $9.00 | $0.14 | ~40 hrs, 10 tapes | $18 | $9 |
-| 128GB | $65 | $13.00 | $0.10 | ~85 hrs, 20 tapes | $25 | $12 |
+| Drive | Pack | Cost each | Per GB |
+| --- | --- | --- | --- |
+| 16GB | 10 pack, $49 | $4.90 | $0.31 |
+| 32GB | 10 pack, $65 | $6.50 | $0.20 |
+| 64GB | 5 pack, $45 | $9.00 | $0.14 |
+| 128GB | 5 pack, $65 | $13.00 | $0.10 |
 
-Bulk sources found: 16GB 10 pack $49, 32GB 10 pack $65, 64GB 5 pack $45,
-128GB 5 pack $65.
+A 5 pack of 32GB at $37 was also seen, which is worse per unit than the 10 pack.
 
 Per GB the big drives win decisively, $0.10 for the 128GB against $0.31 for the
 16GB. **But all four sizes are stocked and listed anyway**, because per-GB value
@@ -189,7 +191,7 @@ a marketing push.
 1. **Verify the flash drives with `f3probe`** when the 5 pack arrives. A script
    to loop every plugged-in drive and print pass/fail was offered but not written yet.
 2. **Resolve the capacity question** above, second VCR or softer promise.
-3. **Marketing.** Nextdoor is likely the single best channel given the free pickup
+3. **Marketing.** Nextdoor is likely the single best channel given the pickup
    angle and the demographic, one post per neighborhood. Facebook local groups
    second. The site will not rank in search, a brand new github.io subdomain has
    no authority, so essentially all traffic will be from shared links. The Open
@@ -202,7 +204,9 @@ a marketing push.
 ## Things already decided, do not re-litigate
 
 - Flat rate per tape, not per hour. See reasoning above.
-- Free pickup and return is the lead selling point, ahead of price.
+- Pickup and return is the lead selling point, ahead of price, but it is offered
+  on a contact-us basis rather than promised free. Do not put "free pickup" back
+  on the site, this was changed deliberately.
 - Google Voice number rather than personal cell, because the site is public.
 - Commercial and copyrighted tapes are declined, this is standard industry
   practice and it is on both the site FAQ and the intake form.
@@ -215,4 +219,4 @@ a marketing push.
 - All four drive sizes stay on the site, see the drive section above.
 - The competitor price comparison table was removed from the site on purpose.
   Inviting people to price shop framed the business as the budget option rather
-  than the convenient local one, and free pickup is the stronger pitch.
+  than the convenient local one, and local pickup is the stronger pitch.
