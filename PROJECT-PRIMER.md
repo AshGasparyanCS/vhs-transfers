@@ -75,8 +75,19 @@ gh api -X POST repos/AshGasparyanCS/vhs-transfers/pages \
 | 5 to 9 | $17 |
 | 10+ | $15 |
 
-**Add-ons:** customer's own USB drive free, 64GB drive $18, 128GB drive $25,
-DVD $8 per disc.
+**Add-ons:** customer's own USB drive free, DVD $8 per disc, and supplied drives:
+
+| Drive | Cost each | Sells for | Margin | Holds | Fits |
+| --- | --- | --- | --- | --- | --- |
+| 16GB | $4.90 | $10 | $5.10 | ~10 hrs | 2-3 tapes |
+| 32GB | $6.50 | $14 | $7.50 | ~20 hrs | ~5 tapes |
+| 64GB | $9.00 | $18 | $9.00 | ~40 hrs | ~10 tapes |
+| 128GB | $13.00 | $25 | $12.00 | ~85 hrs | ~20 tapes |
+
+All four are priced at roughly double cost, so the margin is consistent and no
+size is a trap. The small sizes exist so a one or two tape customer is not being
+sold a $18 drive on top of a $20 job, which looked bad and was the reason the
+full range went on.
 
 ### The reasoning, do not undo this without understanding it
 
@@ -107,14 +118,18 @@ Bulk prices found, all 5 packs:
 | 64GB | $45 | $9.00 | $0.14 | ~40 hrs, 10 tapes | $18 | $9 |
 | 128GB | $65 | $13.00 | $0.10 | ~85 hrs, 20 tapes | $25 | $12 |
 
-**Only 64GB and 128GB are stocked.** 32GB was rejected: it saves the customer
-only $1.60 over a 64GB while halving capacity, which is the worst value of the
-three and doubles the odds of someone running out. 4GB and 8GB were rejected for
-the same reason, an 8GB drive does not even hold one long-play tape.
+Bulk sources found: 16GB 10 pack $49, 32GB 10 pack $65, 64GB 5 pack $45,
+128GB 5 pack $65.
 
-The 64GB is deliberately listed next to the 128GB so the 128 looks like the
-obvious buy, which it genuinely is at $0.10 per GB versus $0.14. Both are priced
-at roughly double cost so neither option is a trap.
+Per GB the big drives win decisively, $0.10 for the 128GB against $0.31 for the
+16GB. **But all four sizes are stocked and listed anyway**, because per-GB value
+is the wrong metric for a small order. A customer with one 2 hour tape needs
+about 2.8GB, and quoting them $18 for a 64GB drive on top of a $20 job made the
+drive cost as much as the service. The small sizes exist to serve that customer,
+not to be good value per GB.
+
+Do not "optimize" this by removing the small drives again, it was considered and
+rejected deliberately.
 
 Sizing math: digitized video runs about **1.4GB per hour**, and tape estimates
 assume a typical 4 hour recording. Long-play tapes run 6 hours, so size up when
@@ -194,3 +209,10 @@ a marketing push.
 - 128GB as the single drive size.
 - Repo named `vhs-transfers` rather than taking the `ashgasparyancs.github.io`
   bare URL slot, which is being kept free for something personal.
+- **No free download link delivery option.** This was proposed twice and rejected
+  both times. Hosting customer video files on the personal Nextcloud is not
+  wanted. Delivery is USB drive or DVD only, do not suggest it again.
+- All four drive sizes stay on the site, see the drive section above.
+- The competitor price comparison table was removed from the site on purpose.
+  Inviting people to price shop framed the business as the budget option rather
+  than the convenient local one, and free pickup is the stronger pitch.
