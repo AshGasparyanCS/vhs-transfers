@@ -18,7 +18,9 @@ Owner: Ash Gasparyan, GitHub `AshGasparyanCS`.
 
 - Phone **(818) 732-8094**, this is a Google Voice number, not the personal cell.
   Deliberate choice because the site is public and gets scraped.
-- Email **ashgasparyan04@gmail.com**
+- Email **ashgasparyan04+vhs@gmail.com**, a Gmail plus-address so business mail
+  can be filtered from personal. It still lands in the `ashgasparyan04@gmail.com`
+  inbox, the `+vhs` tag just makes the source obvious and filterable.
 - Service area: Los Angeles and surrounding
 
 ## The website
