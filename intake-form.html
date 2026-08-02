@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tape Intake Form</title>
+<style>
+  /* Screen defaults. The @media print block below is what actually matters,
+     this is just so it's readable while filling in on a laptop. */
+  :root{ --line:#111; --soft:#666; --rule:#bbb; }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0; padding:24px;
+    background:#f2f2f2;
+    color:var(--line);
+    font:13px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+
+  .sheet{
+    background:#fff;
+    width:8.5in; min-height:11in;
+    margin:0 auto 24px;
+    padding:0.5in 0.55in;
+    box-shadow:0 2px 12px rgba(0,0,0,.15);
+  }
+
+  /* ---- header ---- */
+  .head{display:flex;justify-content:space-between;align-items:flex-start;
+        border-bottom:2.5px solid var(--line);padding-bottom:9px;margin-bottom:14px}
+  .head h1{margin:0;font-size:19px;letter-spacing:-.01em}
+  .head .biz{font-size:11px;color:var(--soft);margin-top:3px;line-height:1.5}
+  .copy{font-size:10px;text-transform:uppercase;letter-spacing:.1em;
+        border:1.5px solid var(--line);padding:4px 9px;white-space:nowrap}
+
+  /* ---- generic fill-in row ---- */
+  .row{display:flex;gap:14px;margin-bottom:9px}
+  .f{flex:1}
+  .f label{display:block;font-size:9px;text-transform:uppercase;
+           letter-spacing:.09em;color:var(--soft);margin-bottom:2px}
+  .f .box{border-bottom:1px solid var(--line);height:20px}
+
+  h2{font-size:11px;text-transform:uppercase;letter-spacing:.1em;
+     margin:16px 0 7px;padding-bottom:3px;border-bottom:1px solid var(--rule)}
+
+  /* ---- tape table ---- */
+  table{width:100%;border-collapse:collapse;font-size:11.5px}
+  th{font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:var(--soft);
+     text-align:left;padding:0 5px 4px;border-bottom:1.5px solid var(--line)}
+  td{border-bottom:1px solid var(--rule);height:23px;padding:0 5px}
+  td.n{width:26px;color:var(--soft);text-align:center;font-size:10px}
+  td.cond{width:112px}
+  .hint{font-size:9px;color:var(--soft);font-weight:400;text-transform:none;letter-spacing:0}
+
+  /* ---- service / price ---- */
+  .two{display:flex;gap:22px;margin-top:6px}
+  .two > div{flex:1}
+  .opt{margin-bottom:5px;font-size:11.5px;display:flex;align-items:center;gap:7px}
+  .tick{display:inline-block;width:11px;height:11px;border:1.4px solid var(--line);flex:none}
+
+  .total{border:2px solid var(--line);padding:9px 12px;margin-top:9px;
+         display:flex;justify-content:space-between;align-items:center}
+  .total .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.1em}
+  .total .amt{font-size:17px;font-weight:700;min-width:110px;
+              border-bottom:1px solid var(--line);text-align:right}
+
+  /* ---- terms ---- */
+  .terms{font-size:9.5px;line-height:1.5;color:#333;margin-top:14px;
+         border:1px solid var(--rule);padding:9px 11px;background:#fafafa}
+  .terms strong{display:block;font-size:9px;text-transform:uppercase;
+                letter-spacing:.09em;margin-bottom:4px}
+  .terms ol{margin:0;padding-left:15px}
+  .terms li{margin-bottom:2.5px}
+
+  /* ---- signatures ---- */
+  .sigs{display:flex;gap:26px;margin-top:16px}
+  .sig{flex:1}
+  .sig .ln{border-bottom:1px solid var(--line);height:27px}
+  .sig .cap{font-size:9px;text-transform:uppercase;letter-spacing:.09em;
+            color:var(--soft);margin-top:3px}
+
+  /* ---- print ---- */
+  @page{ size:Letter; margin:0.45in; }
+  @media print{
+    body{background:#fff;padding:0;font-size:11.5px}
+    .sheet{width:auto;min-height:0;margin:0;padding:0;box-shadow:none;
+           page-break-after:always}
+    .sheet:last-child{page-break-after:auto}
+    .noprint{display:none}
+    td{height:21px}
+  }
+
+  .noprint{max-width:8.5in;margin:0 auto 16px;padding:12px 16px;background:#fff8e6;
+           border:1px solid #e8d9a8;border-radius:6px;font-size:13px;line-height:1.55}
+  .noprint code{background:#f0e8d0;padding:1px 5px;border-radius:3px}
+</style>
+</head>
+<body>
+
+<div class="noprint">
+  <strong>How to use this:</strong> Press <code>Ctrl+P</code> (or <code>Cmd+P</code>)
+  and choose <em>Save as PDF</em>, or print it directly. Print <strong>two copies</strong>
+  of page 1, one for the customer and one for you, and both sign both. Page 2 is a
+  continuation sheet, only print it if the order runs past 12 tapes.
+  This yellow box does not appear on the printout.
+</div>
+
+<!-- ============================ PAGE 1 ============================ -->
+<div class="sheet">
+
+  <div class="head">
+    <div>
+      <h1>Tape Intake &amp; Receipt</h1>
+      <div class="biz">
+        VHS &amp; VHS-C to Digital &middot; Los Angeles<br>
+        (818) 732-8094 &middot; ashgasparyan04@gmail.com
+      </div>
+    </div>
+    <div class="copy">Order #_________</div>
+  </div>
+
+  <div class="row">
+    <div class="f" style="flex:2"><label>Customer name</label><div class="box"></div></div>
+    <div class="f"><label>Phone</label><div class="box"></div></div>
+  </div>
+  <div class="row">
+    <div class="f" style="flex:2"><label>Email (where files can be confirmed)</label><div class="box"></div></div>
+    <div class="f"><label>Date collected</label><div class="box"></div></div>
+  </div>
+  <div class="row">
+    <div class="f" style="flex:2"><label>Pickup address</label><div class="box"></div></div>
+    <div class="f"><label>Est. return date</label><div class="box"></div></div>
+  </div>
+
+  <h2>Tapes received <span class="hint">— fill one row per tape, exactly as labeled</span></h2>
+  <table>
+    <thead>
+      <tr>
+        <th class="n">#</th>
+        <th>Label / description written on the tape</th>
+        <th class="cond">Condition noted</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="n">1</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">2</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">3</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">4</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">5</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">6</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">7</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">8</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">9</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">10</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">11</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">12</td><td></td><td class="cond"></td></tr>
+    </tbody>
+  </table>
+  <div style="font-size:9.5px;color:var(--soft);margin-top:5px">
+    Condition shorthand: OK &middot; mold &middot; warped &middot; loose tape &middot; broken shell &middot; no label &middot; tab removed
+  </div>
+
+  <div class="two">
+    <div>
+      <h2>Delivery</h2>
+      <div class="opt"><span class="tick"></span> Customer's own USB drive &mdash; no charge</div>
+      <div class="opt"><span class="tick"></span> 128GB USB drive supplied &mdash; $25</div>
+      <div class="opt"><span class="tick"></span> DVD copies &mdash; $8 per disc &times; ______</div>
+    </div>
+    <div>
+      <h2>Rate applied</h2>
+      <div class="opt"><span class="tick"></span> 1&ndash;4 tapes &mdash; $20 each</div>
+      <div class="opt"><span class="tick"></span> 5&ndash;9 tapes &mdash; $17 each</div>
+      <div class="opt"><span class="tick"></span> 10+ tapes &mdash; $15 each</div>
+    </div>
+  </div>
+
+  <div class="total">
+    <span class="lbl">Total tapes ______ &nbsp;&times;&nbsp; rate ______ &nbsp;+&nbsp; add-ons ______</span>
+    <span class="lbl">Quoted total&nbsp; $</span><span class="amt"></span>
+  </div>
+
+  <div class="terms">
+    <strong>Terms</strong>
+    <ol>
+      <li>Every tape listed above is returned to the customer. Nothing is kept, discarded, or shipped elsewhere.</li>
+      <li>Tapes are played in real time to be captured. Video quality reflects what is on the original; digitizing preserves it but cannot add detail the tape never held.</li>
+      <li>Tapes that are moldy, snapped, or too degraded to play will be reported before any work is done, and are not charged for.</li>
+      <li>Commercially produced or copyrighted tapes cannot be duplicated. Home recordings only.</li>
+      <li>Reasonable care is taken with every tape, but tapes decades old can fail during normal playback. Liability is limited to the conversion fee for that tape.</li>
+      <li>Files are held for 30 days after return in case a copy is needed again, then deleted.</li>
+    </ol>
+  </div>
+
+  <div class="sigs">
+    <div class="sig">
+      <div class="ln"></div>
+      <div class="cap">Customer signature &nbsp;/&nbsp; date</div>
+    </div>
+    <div class="sig">
+      <div class="ln"></div>
+      <div class="cap">Received by &nbsp;/&nbsp; date</div>
+    </div>
+  </div>
+
+  <div style="margin-top:12px;border-top:1px solid var(--rule);padding-top:7px;
+              display:flex;gap:26px">
+    <div style="flex:1">
+      <div style="border-bottom:1px solid var(--line);height:25px"></div>
+      <div style="font-size:9px;text-transform:uppercase;letter-spacing:.09em;
+                  color:var(--soft);margin-top:3px">
+        All tapes returned &mdash; customer signature / date
+      </div>
+    </div>
+    <div style="flex:1">
+      <div style="border-bottom:1px solid var(--line);height:25px"></div>
+      <div style="font-size:9px;text-transform:uppercase;letter-spacing:.09em;
+                  color:var(--soft);margin-top:3px">
+        Paid &nbsp;$__________ &nbsp; cash / venmo / zelle &mdash; date
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================ PAGE 2 ============================ -->
+<div class="sheet">
+  <div class="head">
+    <div>
+      <h1>Tape Intake &mdash; Continuation</h1>
+      <div class="biz">Attach to order # ________ &middot; page ____ of ____</div>
+    </div>
+    <div class="copy">Order #_________</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="n">#</th>
+        <th>Label / description written on the tape</th>
+        <th class="cond">Condition noted</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="n">13</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">14</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">15</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">16</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">17</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">18</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">19</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">20</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">21</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">22</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">23</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">24</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">25</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">26</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">27</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">28</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">29</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">30</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">31</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">32</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">33</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">34</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">35</td><td></td><td class="cond"></td></tr>
+      <tr><td class="n">36</td><td></td><td class="cond"></td></tr>
+    </tbody>
+  </table>
+
+  <div class="sigs" style="margin-top:22px">
+    <div class="sig">
+      <div class="ln"></div>
+      <div class="cap">Customer signature &nbsp;/&nbsp; date</div>
+    </div>
+    <div class="sig">
+      <div class="ln"></div>
+      <div class="cap">Received by &nbsp;/&nbsp; date</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
