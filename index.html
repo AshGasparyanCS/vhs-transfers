@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VHS to Digital Conversion in Los Angeles | Free Pickup &amp; Return</title>
+<meta name="description" content="VHS and VHS-C tape to digital conversion in Los Angeles with free pickup and return. Flat rate per tape no matter how long. Your tapes never get mailed anywhere.">
+
+<!-- Open Graph: makes the link look right when texted or posted on Facebook,
+     which is where most of your customers will actually find this. -->
+<meta property="og:title" content="VHS to Digital Conversion in Los Angeles">
+<meta property="og:description" content="Free pickup and return anywhere in LA. Flat rate per tape, any length.">
+<meta property="og:type" content="website">
+
+<style>
+  :root{
+    --ink:#1a1a1c;
+    --ink-soft:#4a4a52;
+    --paper:#faf7f2;
+    --card:#ffffff;
+    --line:#e2ddd3;
+    --accent:#c8102e;
+    --accent-2:#1e3a8a;
+    --good:#0f7b3f;
+    --shadow:0 1px 3px rgba(26,26,28,.08),0 8px 24px rgba(26,26,28,.06);
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+
+  /* ---------- Hero ---------- */
+  header{
+    background:linear-gradient(170deg,#16161a 0%,#26262e 100%);
+    color:#fff;
+    padding:64px 0 56px;
+    position:relative;
+    overflow:hidden;
+  }
+  /* Faint scanlines. Decorative only, kept very subtle so it never fights
+     with the text for older eyes. */
+  header::after{
+    content:"";
+    position:absolute;inset:0;
+    background:repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,.035) 0 1px,
+      transparent 1px 4px
+    );
+    pointer-events:none;
+  }
+  .tag{
+    display:inline-block;
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:#ffd9df;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:100px;
+    padding:6px 14px;
+    margin-bottom:22px;
+  }
+  h1{
+    font-size:clamp(34px,6.5vw,54px);
+    line-height:1.1;
+    margin:0 0 18px;
+    letter-spacing:-.02em;
+    /* Chromatic split, the classic VHS tracking-error look. */
+    text-shadow:2px 0 0 rgba(200,16,46,.55), -2px 0 0 rgba(30,58,138,.55);
+  }
+  .sub{
+    font-size:clamp(17px,2.6vw,21px);
+    color:#d6d4cf;
+    margin:0 0 32px;
+    max-width:34em;
+  }
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{
+    display:inline-block;
+    padding:15px 26px;
+    border-radius:10px;
+    font-weight:650;
+    font-size:17px;
+    text-decoration:none;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-main{background:var(--accent);color:#fff;box-shadow:0 4px 14px rgba(200,16,46,.35)}
+  .btn-ghost{background:rgba(255,255,255,.09);color:#fff;border:1px solid rgba(255,255,255,.28)}
+
+  /* ---------- Sections ---------- */
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:0}
+  h2{font-size:clamp(24px,4vw,32px);margin:0 0 10px;letter-spacing:-.01em}
+  .lede{color:var(--ink-soft);margin:0 0 30px;font-size:18px;max-width:38em}
+
+  /* ---------- Trust points ---------- */
+  .points{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+  .point{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:24px;box-shadow:var(--shadow);
+  }
+  .point .ico{font-size:26px;margin-bottom:10px}
+  .point h3{margin:0 0 6px;font-size:18px}
+  .point p{margin:0;color:var(--ink-soft);font-size:15.5px}
+
+  /* ---------- Pricing ---------- */
+  .price-card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:14px;box-shadow:var(--shadow);overflow:hidden;
+  }
+  .price-head{
+    background:#16161a;color:#fff;padding:22px 26px;
+  }
+  .price-head strong{font-size:20px;display:block}
+  .price-head span{color:#b9b6b0;font-size:15px}
+
+  table{width:100%;border-collapse:collapse}
+  th,td{padding:16px 26px;text-align:left;border-bottom:1px solid var(--line)}
+  th{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);font-weight:650}
+  tr:last-child td{border-bottom:0}
+  .qty{font-weight:600}
+  .amt{text-align:right;font-weight:700;font-size:20px;white-space:nowrap}
+  .save{
+    display:inline-block;margin-left:8px;font-size:12px;font-weight:700;
+    color:var(--good);background:#e6f4ec;padding:3px 8px;border-radius:100px;
+    vertical-align:middle;
+  }
+
+  .note{
+    background:#fff8e6;border:1px solid #f0e0b0;border-left:4px solid #e0a800;
+    border-radius:8px;padding:16px 20px;margin-top:22px;font-size:15.5px;color:#5c4a12;
+  }
+
+  /* ---------- Comparison ---------- */
+  .compare{margin-top:34px}
+  .compare table{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:12px;box-shadow:var(--shadow);overflow:hidden;
+  }
+  .compare .them{color:var(--ink-soft);text-decoration:line-through;text-align:right}
+  .compare .us{color:var(--good);font-weight:700;text-align:right;white-space:nowrap}
+
+  /* Any wide table scrolls inside itself rather than pushing the page sideways. */
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  /* ---------- Steps ---------- */
+  ol.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:18px}
+  ol.steps li{
+    counter-increment:s;position:relative;padding-left:56px;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding-top:20px;padding-bottom:20px;padding-right:22px;box-shadow:var(--shadow);
+  }
+  ol.steps li::before{
+    content:counter(s);
+    position:absolute;left:18px;top:19px;
+    width:26px;height:26px;border-radius:50%;
+    background:var(--accent);color:#fff;
+    font-size:14px;font-weight:700;
+    display:grid;place-items:center;
+  }
+  ol.steps strong{display:block;margin-bottom:3px}
+  ol.steps span{color:var(--ink-soft);font-size:15.5px}
+
+  /* ---------- FAQ ---------- */
+  details{
+    background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:16px 20px;margin-bottom:10px;
+  }
+  details[open]{box-shadow:var(--shadow)}
+  summary{cursor:pointer;font-weight:600;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";float:right;color:var(--accent);font-weight:700;font-size:20px;line-height:1}
+  details[open] summary::after{content:"\2212"}
+  details p{margin:12px 0 0;color:var(--ink-soft);font-size:16px}
+
+  /* ---------- Contact ---------- */
+  #contact{background:#16161a;color:#fff;border-bottom:0}
+  #contact h2{color:#fff}
+  #contact .lede{color:#c9c6c1}
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:8px}
+  .contact-card{
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+    border-radius:12px;padding:22px;
+  }
+  .contact-card .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#a5a29d;margin-bottom:7px}
+  .contact-card a{color:#fff;font-size:19px;font-weight:650;text-decoration:none;word-break:break-word}
+  .contact-card a:hover{text-decoration:underline}
+
+  footer{padding:30px 0 44px;text-align:center;color:var(--ink-soft);font-size:14.5px;background:var(--paper)}
+
+  @media (max-width:560px){
+    th,td{padding:14px 16px}
+    .price-head{padding:18px 16px}
+    .amt{font-size:18px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="tag">VHS &amp; VHS-C &rarr; Digital</span>
+    <h1>Your family tapes,<br>saved before they fade.</h1>
+    <p class="sub">
+      I pick them up from your door and bring them back. Flat rate per tape, no
+      matter how long it runs, and nothing ever gets mailed anywhere.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-main" href="#contact">Get started</a>
+      <a class="btn btn-ghost" href="#pricing">See pricing</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="points">
+      <div class="point">
+        <div class="ico">🚗</div>
+        <h3>Free pickup &amp; return</h3>
+        <p>I come to you, collect the tapes at your door, and bring them back the
+           same way. No shipping, no driving, no drop-off counter.</p>
+      </div>
+      <div class="point">
+        <div class="ico">🏷️</div>
+        <h3>One flat price</h3>
+        <p>A six hour tape costs the same as a one hour tape. No per-half-hour
+           meter running while your kid's birthday party plays.</p>
+      </div>
+      <div class="point">
+        <div class="ico">⚡</div>
+        <h3>Days, not months</h3>
+        <p>Mail-in services routinely take four to eight weeks. Most orders here
+           are done in under a week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <h2>Pricing</h2>
+    <p class="lede">
+      Priced per tape, not per hour. Bring more tapes and the price per tape drops.
+    </p>
+
+    <div class="price-card">
+      <div class="price-head">
+        <strong>Tape conversion</strong>
+        <span>Any length up to 6 hours &middot; VHS and VHS-C</span>
+      </div>
+      <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>How many tapes</th><th style="text-align:right">Price each</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="qty">1 &ndash; 4 tapes</td><td class="amt">$20</td></tr>
+          <tr><td class="qty">5 &ndash; 9 tapes</td><td class="amt">$17 <span class="save">save 15%</span></td></tr>
+          <tr><td class="qty">10+ tapes</td><td class="amt">$15 <span class="save">save 25%</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="price-card" style="margin-top:22px">
+      <div class="price-head">
+        <strong>Getting your files back</strong>
+        <span>Pick whichever suits you</span>
+      </div>
+      <div class="scroll">
+      <table>
+        <tbody>
+          <tr>
+            <td class="qty">You bring your own USB drive<br>
+              <span style="color:var(--ink-soft);font-size:14.5px;font-weight:400">Any drive with enough free space works</span></td>
+            <td class="amt">Free</td>
+          </tr>
+          <tr>
+            <td class="qty">128GB USB drive included<br>
+              <span style="color:var(--ink-soft);font-size:14.5px;font-weight:400">Holds roughly 90 hours of footage, yours to keep</span></td>
+            <td class="amt">$25</td>
+          </tr>
+          <tr>
+            <td class="qty">DVD copy<br>
+              <span style="color:var(--ink-soft);font-size:14.5px;font-weight:400">About 2 hours per disc, priced per disc</span></td>
+            <td class="amt">$8</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Not sure how much space you need?</strong> Digitized video runs about
+      1.4GB per hour. A 128GB drive holds around 90 hours, which is roughly
+      15 full-length six hour tapes. Most collections fit easily.
+    </div>
+
+    <div class="compare">
+      <h2 style="font-size:22px;margin-top:38px">How flat rate compares</h2>
+      <p class="lede" style="font-size:16.5px">
+        Most mail-in and big-box services charge a base fee plus a per-half-hour
+        rate. That adds up fast on the long EP-mode tapes most home movies were
+        recorded on.
+      </p>
+      <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Tape length</th>
+            <th style="text-align:right">Typical per-hour service</th>
+            <th style="text-align:right">Here</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="qty">2 hours</td><td class="them">$33</td><td class="us">$20</td></tr>
+          <tr><td class="qty">4 hours</td><td class="them">$57</td><td class="us">$20</td></tr>
+          <tr><td class="qty">6 hours</td><td class="them">$81</td><td class="us">$20</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p style="color:var(--ink-soft);font-size:14px;margin-top:12px">
+        Comparison based on a common $15 first-half-hour plus $6 per additional
+        half hour structure. Single tape pricing shown.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="lede">You don't have to go anywhere. Four steps, all from your couch.</p>
+    <ol class="steps">
+      <li><strong>Get in touch</strong><span>Text, call, or email with roughly how many tapes you have. I'll confirm the price up front, before anything is picked up.</span></li>
+      <li><strong>I come collect them</strong><span>We pick a time that suits you and I stop by. You get a written list of every tape I take, so there's a record on both sides.</span></li>
+      <li><strong>I digitize them</strong><span>Each tape is played and captured start to finish, then checked before it goes on your drive.</span></li>
+      <li><strong>I bring it all back</strong><span>Your original tapes back, plus your files, organized and labeled however you'd like. Nothing gets kept.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Questions</h2>
+    <p class="lede">The ones that come up most.</p>
+
+    <details>
+      <summary>What file format do I get?</summary>
+      <p>Standard MP4 files, which play on essentially anything: phones, laptops,
+         smart TVs, tablets. Nothing proprietary and no special software required.</p>
+    </details>
+
+    <details>
+      <summary>How long does it take?</summary>
+      <p>Tapes have to play in real time to be captured, so a six hour tape takes
+         six hours of machine time. Most orders are ready within a week. Large
+         collections may take a bit longer and I'll tell you up front.</p>
+    </details>
+
+    <details>
+      <summary>What if my tape is old or damaged?</summary>
+      <p>Old tapes are the norm and most play fine. If a tape is moldy, badly
+         warped, or the tape itself is snapped, I'll let you know before doing
+         anything and you won't be charged for a tape that can't be recovered.</p>
+    </details>
+
+    <details>
+      <summary>Will the video look better than the original?</summary>
+      <p>Honestly, no, and be wary of anyone who says otherwise. VHS is a
+         low-resolution format and digitizing preserves what's on the tape, it
+         doesn't add detail that was never recorded. What it does do is stop any
+         further decay, since tapes genuinely degrade every year they sit in a
+         closet.</p>
+    </details>
+
+    <details>
+      <summary>Do you take VHS-C camcorder tapes?</summary>
+      <p>Yes. Those are the smaller camcorder cassettes and they're handled at
+         the same price as full size VHS. Just bring them along.</p>
+    </details>
+
+    <details>
+      <summary>Can you copy store-bought movies?</summary>
+      <p>No. Commercially produced and copyrighted tapes can't be duplicated.
+         This service is for home movies and personal recordings.</p>
+    </details>
+
+    <details>
+      <summary>Do I really not have to drop anything off?</summary>
+      <p>Correct. I pick the tapes up from your home and return them the same way,
+         at no extra charge within the local area. If you're further out, just ask
+         and we'll sort something out.</p>
+    </details>
+
+    <details>
+      <summary>How do I know my tapes won't get lost?</summary>
+      <p>When I collect them, we write down every tape together and you keep a
+         copy of that list. They go straight to one place, get digitized, and come
+         back to you. They're never boxed up and handed to a courier.</p>
+    </details>
+
+    <details>
+      <summary>What happens to my tapes afterward?</summary>
+      <p>You get every one of them back. Nothing is thrown away, kept, or shipped
+         anywhere.</p>
+    </details>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Get started</h2>
+    <p class="lede">
+      Send a rough tape count and I'll get you a firm price the same day.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="lbl">Email</div>
+        <a href="mailto:ashgasparyan04@gmail.com">ashgasparyan04@gmail.com</a>
+      </div>
+      <div class="contact-card">
+        <div class="lbl">Call or text</div>
+        <a href="tel:+18187328094">(818) 732-8094</a>
+      </div>
+      <div class="contact-card">
+        <div class="lbl">Free pickup in</div>
+        <a href="#" style="cursor:default;text-decoration:none">Los Angeles &amp; surrounding area</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    VHS &amp; VHS-C to digital conversion &middot; Home movies only
+  </div>
+</footer>
+
+</body>
+</html>
