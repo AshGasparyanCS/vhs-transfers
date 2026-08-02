@@ -75,7 +75,8 @@ gh api -X POST repos/AshGasparyanCS/vhs-transfers/pages \
 | 5 to 9 | $17 |
 | 10+ | $15 |
 
-**Add-ons:** customer's own USB drive free, 128GB drive supplied $25, DVD $8 per disc.
+**Add-ons:** customer's own USB drive free, 64GB drive $18, 128GB drive $25,
+DVD $8 per disc.
 
 ### The reasoning, do not undo this without understanding it
 
@@ -98,12 +99,28 @@ unattended machine time, so flat rate is honest, not a loss leader.
 
 ### Flash drive economics
 
-- Buying 128GB drives in a **5 pack for $65**, so **$13 each**. Charging $25, so
-  about $12 margin.
-- 128GB is the right single stock size. Digitized video runs about **1.4GB per
-  hour**, so 128GB holds roughly 90 hours, which covers a 25 tape collection
-  comfortably. One SKU means never having to think about whether an order fits.
-- An earlier $95 for 5 listing was rejected as overpriced at $19 each.
+Bulk prices found, all 5 packs:
+
+| Drive | Pack price | Cost each | Per GB | Holds | Sells for | Margin |
+| --- | --- | --- | --- | --- | --- | --- |
+| 32GB | $37 | $7.40 | $0.23 | ~20 hrs, 5 tapes | not stocked | n/a |
+| 64GB | $45 | $9.00 | $0.14 | ~40 hrs, 10 tapes | $18 | $9 |
+| 128GB | $65 | $13.00 | $0.10 | ~85 hrs, 20 tapes | $25 | $12 |
+
+**Only 64GB and 128GB are stocked.** 32GB was rejected: it saves the customer
+only $1.60 over a 64GB while halving capacity, which is the worst value of the
+three and doubles the odds of someone running out. 4GB and 8GB were rejected for
+the same reason, an 8GB drive does not even hold one long-play tape.
+
+The 64GB is deliberately listed next to the 128GB so the 128 looks like the
+obvious buy, which it genuinely is at $0.10 per GB versus $0.14. Both are priced
+at roughly double cost so neither option is a trap.
+
+Sizing math: digitized video runs about **1.4GB per hour**, and tape estimates
+assume a typical 4 hour recording. Long-play tapes run 6 hours, so size up when
+a customer says their tapes are the long kind.
+
+An earlier $95 for 5 x 128GB listing was rejected as overpriced at $19 each.
 
 **Counterfeit drives are the real risk here.** Fake flash drives report a large
 capacity to the OS but physically hold far less, write "successfully", then
