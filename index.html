@@ -138,15 +138,6 @@
     border-radius:8px;padding:16px 20px;margin-top:22px;font-size:15.5px;color:#5c4a12;
   }
 
-  /* ---------- Comparison ---------- */
-  .compare{margin-top:34px}
-  .compare table{
-    background:var(--card);border:1px solid var(--line);
-    border-radius:12px;box-shadow:var(--shadow);overflow:hidden;
-  }
-  .compare .them{color:var(--ink-soft);text-decoration:line-through;text-align:right}
-  .compare .us{color:var(--good);font-weight:700;text-align:right;white-space:nowrap}
-
   /* Any wide table scrolls inside itself rather than pushing the page sideways. */
   .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
@@ -298,39 +289,37 @@
       </div>
     </div>
 
-    <div class="note">
-      <strong>Not sure how much space you need?</strong> Digitized video runs about
-      1.4GB per hour. A 128GB drive holds around 90 hours, which is roughly
-      15 full-length six hour tapes. Most collections fit easily.
-    </div>
-
-    <div class="compare">
-      <h2 style="font-size:22px;margin-top:38px">How flat rate compares</h2>
-      <p class="lede" style="font-size:16.5px">
-        Most mail-in and big-box services charge a base fee plus a per-half-hour
-        rate. That adds up fast on the long EP-mode tapes most home movies were
-        recorded on.
-      </p>
+    <div class="price-card" style="margin-top:22px">
+      <div class="price-head">
+        <strong>Drive sizes</strong>
+        <span>Which one you need, if you're not bringing your own</span>
+      </div>
       <div class="scroll">
       <table>
         <thead>
           <tr>
-            <th>Tape length</th>
-            <th style="text-align:right">Typical per-hour service</th>
-            <th style="text-align:right">Here</th>
+            <th>Drive</th>
+            <th>Holds about</th>
+            <th>Roughly</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td class="qty">2 hours</td><td class="them">$33</td><td class="us">$20</td></tr>
-          <tr><td class="qty">4 hours</td><td class="them">$57</td><td class="us">$20</td></tr>
-          <tr><td class="qty">6 hours</td><td class="them">$81</td><td class="us">$20</td></tr>
+          <tr><td class="qty">16 GB</td><td>10 hours</td><td>2 to 3 tapes</td></tr>
+          <tr><td class="qty">32 GB</td><td>20 hours</td><td>about 5 tapes</td></tr>
+          <tr><td class="qty">64 GB</td><td>40 hours</td><td>about 10 tapes</td></tr>
+          <tr><td class="qty">128 GB</td><td>85 hours</td><td>about 20 tapes</td></tr>
+          <tr><td class="qty">256 GB</td><td>170 hours</td><td>about 40 tapes</td></tr>
         </tbody>
       </table>
       </div>
-      <p style="color:var(--ink-soft);font-size:14px;margin-top:12px">
-        Comparison based on a common $15 first-half-hour plus $6 per additional
-        half hour structure. Single tape pricing shown.
-      </p>
+    </div>
+
+    <div class="note">
+      <strong>How the estimates work.</strong> Digitized video runs about 1.4GB
+      per hour, and the tape counts assume a typical 4 hour recording. A tape
+      recorded in long-play mode can run 6 hours, so if your tapes are the long
+      kind, size up. If you're unsure, tell me roughly how many tapes you have
+      and I'll tell you exactly what you need.
     </div>
   </div>
 </section>
