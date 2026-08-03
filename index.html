@@ -141,6 +141,37 @@
   /* Any wide table scrolls inside itself rather than pushing the page sideways. */
   .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
+  /* ---------- Estimator ---------- */
+  .calc{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .calc-in{padding:24px 26px}
+  .crow{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+  .crow:last-child{margin-bottom:0}
+  .crow label{flex:1;font-size:16px}
+  .crow label small{display:block;color:var(--ink-soft);font-size:13.5px;margin-top:1px}
+  .crow input[type=number],.crow select{
+    width:104px;flex:none;padding:9px 11px;font-size:16px;
+    border:1px solid var(--line);border-radius:8px;background:var(--paper);
+    color:var(--ink);font-family:inherit;
+  }
+  .crow select{width:132px}
+  .crow input:focus,.crow select:focus{outline:2px solid var(--accent);outline-offset:1px}
+
+  .calc-out{background:#16161a;color:#fff;padding:24px 26px}
+  .calc-out .orow{display:flex;justify-content:space-between;gap:14px;
+                  padding:7px 0;font-size:15.5px;color:#d3d0cb}
+  .calc-out .orow span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .calc-out .sep{border-top:1px solid rgba(255,255,255,.18);margin:9px 0}
+  .calc-out .big{display:flex;justify-content:space-between;align-items:baseline;
+                 gap:14px;font-size:17px;color:#fff;font-weight:650;padding-top:3px}
+  .calc-out .big .v{font-size:27px;font-variant-numeric:tabular-nums}
+  .calc-rec{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+            border-radius:9px;padding:13px 15px;margin-bottom:16px;font-size:15px;color:#eceae6}
+  .calc-rec b{color:#fff}
+  .calc-note{font-size:13px;color:#a5a29d;margin-top:14px;line-height:1.5}
+
   /* ---------- Steps ---------- */
   ol.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:18px}
   ol.steps li{
@@ -263,6 +294,43 @@
 
     <div class="price-card" style="margin-top:22px">
       <div class="price-head">
+        <strong>Disc archiving</strong>
+        <span>Home-recorded CDs and DVDs copied to files before they rot</span>
+      </div>
+      <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>Type</th><th>Typical size</th><th style="text-align:right">1 &ndash; 9</th><th style="text-align:right">10+</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="qty">CD<br>
+              <span style="color:var(--ink-soft);font-size:14.5px;font-weight:400">Audio or data, up to 700MB</span></td>
+            <td>0.3 &ndash; 0.7 GB</td>
+            <td class="amt">$8</td>
+            <td class="amt">$6</td>
+          </tr>
+          <tr>
+            <td class="qty">DVD<br>
+              <span style="color:var(--ink-soft);font-size:14.5px;font-weight:400">Single layer 4.7GB, dual layer 8.5GB</span></td>
+            <td>2 &ndash; 8.5 GB</td>
+            <td class="amt">$10</td>
+            <td class="amt">$8</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:18px">
+      <strong>Discs don't last forever either.</strong> Home-burned CDs and DVDs
+      use a dye layer that fades, and many discs burned in the 2000s are already
+      unreadable. If you have wedding DVDs, camcorder discs, or burned photo CDs
+      sitting in a drawer, they're on the same clock your tapes are.
+    </div>
+
+    <div class="price-card" style="margin-top:22px">
+      <div class="price-head">
         <strong>Getting your files back</strong>
         <span>Pick whichever suits you</span>
       </div>
@@ -338,8 +406,58 @@
       <strong>How the estimates work.</strong> Digitized video runs about 1.4GB
       per hour, and the tape counts assume a typical 4 hour recording. A tape
       recorded in long-play mode can run 6 hours, so if your tapes are the long
-      kind, size up. If you're unsure, tell me roughly how many tapes you have
-      and I'll tell you exactly what you need.
+      kind, size up.
+    </div>
+  </div>
+</section>
+
+<section id="estimate">
+  <div class="wrap">
+    <h2>Work out your total</h2>
+    <p class="lede">
+      Put in what you've got and this will size the drive and estimate the cost.
+      Nothing is sent anywhere, it all runs in your browser.
+    </p>
+
+    <div class="calc">
+      <div class="calc-in">
+        <div class="crow">
+          <label for="q-tapes">VHS or VHS-C tapes
+            <small>Full size or camcorder cassettes</small></label>
+          <input id="q-tapes" type="number" min="0" max="999" step="1" value="0" inputmode="numeric">
+        </div>
+        <div class="crow">
+          <label for="q-len">How long are they, roughly?
+            <small>Pick the longest if they're mixed</small></label>
+          <select id="q-len">
+            <option value="2">About 2 hours</option>
+            <option value="4" selected>About 4 hours</option>
+            <option value="6">About 6 hours</option>
+          </select>
+        </div>
+        <div class="crow">
+          <label for="q-cds">CDs
+            <small>Home-burned audio or data discs</small></label>
+          <input id="q-cds" type="number" min="0" max="999" step="1" value="0" inputmode="numeric">
+        </div>
+        <div class="crow">
+          <label for="q-dvds">DVDs
+            <small>Camcorder, wedding or home-burned discs</small></label>
+          <input id="q-dvds" type="number" min="0" max="999" step="1" value="0" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="calc-out">
+        <div class="calc-rec" id="q-rec">Enter what you have to see an estimate.</div>
+        <div id="q-lines"></div>
+        <div class="sep"></div>
+        <div class="big"><span>Estimated total</span><span class="v" id="q-total">&mdash;</span></div>
+        <div class="calc-note">
+          An estimate, not a quote. Tape lengths vary and discs are often not full,
+          so the real figure is usually a little lower. Get in touch and I'll
+          confirm properly.
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -398,16 +516,20 @@
     </details>
 
     <details>
-      <summary>Can you copy store-bought movies?</summary>
-      <p>No. Commercially produced and copyrighted tapes can't be duplicated.
-         This service is for home movies and personal recordings.</p>
+      <summary>My tapes were recorded overseas. Is that a problem?</summary>
+      <p>Mention it when you get in touch. Tapes recorded outside North America
+         are usually PAL or SECAM rather than the NTSC standard used here, and
+         they need a different machine to play back. The cassettes look completely
+         identical, so there's no way to tell by looking. If your tapes came from
+         Europe, Asia, Australia, the Middle East, or the former Soviet Union, just
+         say so up front and I'll let you know what I can do.</p>
     </details>
 
     <details>
-      <summary>Can you come pick the tapes up?</summary>
-      <p>Usually yes. Get in touch with roughly where you are and how many tapes
-         you have, and I'll let you know. Los Angeles is a big place, so it depends
-         a bit on the distance, but it's rarely a problem.</p>
+      <summary>Can you copy store-bought movies or music?</summary>
+      <p>No. Commercially produced and copyrighted tapes, DVDs and CDs can't be
+         duplicated. This service is for home movies, home recordings, and discs
+         you made yourself.</p>
     </details>
 
     <details>
@@ -453,6 +575,117 @@
     VHS &amp; VHS-C to digital conversion &middot; Home movies only
   </div>
 </footer>
+
+<script>
+(function () {
+  // Storage assumptions. Deliberately a little generous so the recommended
+  // drive is never too small, which is the only failure mode that costs a
+  // second trip across LA.
+  var GB_PER_TAPE_HOUR = 1.4;
+  var GB_PER_CD        = 0.5;   // audio ripped lossless, or a part-full data disc
+  var GB_PER_DVD       = 4.7;   // a full single-layer disc
+
+  // Usable capacity after formatting, roughly 93% of the nominal figure.
+  var DRIVES = [
+    { gb: 16,  usable: 14.9, price: 10 },
+    { gb: 32,  usable: 29.8, price: 14 },
+    { gb: 64,  usable: 59.6, price: 18 },
+    { gb: 128, usable: 119,  price: 25 }
+  ];
+
+  function tapeRate(n) { return n >= 10 ? 15 : n >= 5 ? 17 : 20; }
+  function cdRate(n)   { return n >= 10 ? 6  : 8; }
+  function dvdRate(n)  { return n >= 10 ? 8  : 10; }
+
+  function num(id) {
+    var el = document.getElementById(id);
+    var v = parseInt(el.value, 10);
+    if (isNaN(v) || v < 0) v = 0;
+    if (v > 999) v = 999;
+    return v;
+  }
+
+  function money(n) { return '$' + n.toLocaleString('en-US'); }
+
+  function line(label, value) {
+    return '<div class="orow"><span>' + label + '</span><span>' + value + '</span></div>';
+  }
+
+  function update() {
+    var tapes = num('q-tapes');
+    var hours = parseFloat(document.getElementById('q-len').value);
+    var cds   = num('q-cds');
+    var dvds  = num('q-dvds');
+
+    var recEl   = document.getElementById('q-rec');
+    var linesEl = document.getElementById('q-lines');
+    var totalEl = document.getElementById('q-total');
+
+    if (tapes + cds + dvds === 0) {
+      recEl.textContent = 'Enter what you have to see an estimate.';
+      linesEl.innerHTML = '';
+      totalEl.innerHTML = '&mdash;';
+      return;
+    }
+
+    var gb = tapes * hours * GB_PER_TAPE_HOUR + cds * GB_PER_CD + dvds * GB_PER_DVD;
+
+    // Leave 10% headroom so nobody lands exactly at the limit.
+    var pick = null;
+    for (var i = 0; i < DRIVES.length; i++) {
+      if (gb <= DRIVES[i].usable * 0.9) { pick = DRIVES[i]; break; }
+    }
+
+    var html = '';
+    var total = 0;
+
+    if (tapes) {
+      var tr = tapeRate(tapes);
+      total += tapes * tr;
+      html += line(tapes + (tapes === 1 ? ' tape' : ' tapes') + ' at ' + money(tr),
+                   money(tapes * tr));
+    }
+    if (cds) {
+      var cr = cdRate(cds);
+      total += cds * cr;
+      html += line(cds + (cds === 1 ? ' CD' : ' CDs') + ' at ' + money(cr),
+                   money(cds * cr));
+    }
+    if (dvds) {
+      var dr = dvdRate(dvds);
+      total += dvds * dr;
+      html += line(dvds + (dvds === 1 ? ' DVD' : ' DVDs') + ' at ' + money(dr),
+                   money(dvds * dr));
+    }
+
+    var gbTxt = (gb < 10 ? gb.toFixed(1) : Math.round(gb)) + ' GB';
+
+    if (pick) {
+      total += pick.price;
+      html += line(pick.gb + 'GB drive', money(pick.price));
+      recEl.innerHTML = 'About <b>' + gbTxt + '</b> of files, so a <b>' +
+        pick.gb + 'GB drive</b> covers it comfortably. Bringing your own drive? ' +
+        'Knock ' + money(pick.price) + ' off.';
+    } else {
+      recEl.innerHTML = 'About <b>' + gbTxt + '</b> of files, which is more than a ' +
+        'single 128GB drive holds. Get in touch and we\'ll sort out the best way ' +
+        'to hand it all over.';
+      html += line('Drive', 'quoted separately');
+    }
+
+    linesEl.innerHTML = html;
+    totalEl.textContent = money(total);
+  }
+
+  var ids = ['q-tapes', 'q-len', 'q-cds', 'q-dvds'];
+  for (var i = 0; i < ids.length; i++) {
+    var el = document.getElementById(ids[i]);
+    el.addEventListener('input', update);
+    el.addEventListener('change', update);
+  }
+  update();
+})();
+</script>
 
 </body>
 </html>

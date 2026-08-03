@@ -77,7 +77,18 @@ gh api -X POST repos/AshGasparyanCS/vhs-transfers/pages \
 | 5 to 9 | $17 |
 | 10+ | $15 |
 
-**Add-ons:** customer's own USB drive free, DVD $8 per disc, and supplied drives:
+**Disc archiving** (home-burned discs only, same copyright rule as tapes):
+
+| Type | Typical size | 1 to 9 | 10+ |
+| --- | --- | --- | --- |
+| CD | 0.3 to 0.7 GB | $8 | $6 |
+| DVD | 2 to 8.5 GB (4.7 single layer, 8.5 dual) | $10 | $8 |
+
+Discs are much faster than tape since they copy at drive speed rather than
+realtime, which is why they are cheaper per unit despite holding more.
+
+**Add-ons:** customer's own USB drive free, DVD copy of output $8 per disc, and
+supplied drives:
 
 | Drive | Cost each | Sells for | Margin | Holds | Fits |
 | --- | --- | --- | --- | --- | --- |
@@ -153,6 +164,49 @@ f3probe --time-ops /dev/sdb  # detects fake capacity specifically
 ```
 
 Once per drive when the pack arrives, not per customer.
+
+## PAL / SECAM tapes
+
+**The current VCR is NTSC only and cannot play PAL or SECAM tapes.** This is not
+a tracking issue, the formats differ in line count (525 vs 625), frame rate
+(29.97 vs 25) and tape speed, so an NTSC deck gets no lock at all.
+
+Cassettes are physically identical, so there is no way to spot one by looking.
+The site FAQ now asks anyone with overseas tapes to say so up front.
+
+Playing them needs a multi-system "world" VCR (Panasonic NV-J700AM, Samsung
+SV-5000W, AIWA HV-MX100 and similar), none still manufactured, roughly $150 to
+$400 used. Two things to check when buying: that it outputs native PAL rather
+than converting to NTSC internally (conversion loses quality), and that the
+capture device accepts 576i/25fps input.
+
+**This is a real opportunity, not just a problem.** LA has very large diaspora
+communities and almost nobody offers PAL or SECAM conversion locally. It could
+justify a premium rate around $30 to $35 per tape, paying back the deck in about
+ten tapes. Worth revisiting once the NTSC side is running smoothly.
+
+## The estimator on the site
+
+`index.html` has a calculator at `#estimate` that sizes the drive and totals the
+cost from tape / CD / DVD counts. Pure vanilla JS in a script tag at the bottom,
+no dependencies, no network calls, runs entirely client side.
+
+Assumptions live in constants at the top of that script:
+
+- `GB_PER_TAPE_HOUR = 1.4`
+- `GB_PER_CD = 0.5`
+- `GB_PER_DVD = 4.7`
+- Drive usable capacity is about 93% of nominal, and the picker leaves a further
+  10% headroom so nobody lands at 100% full
+
+The headroom is deliberate and slightly conservative. Ten 4 hour tapes come to
+56GB, which technically fits a 64GB drive but would leave it 94% full, so the
+calculator recommends 128GB instead. Sizing up is the cheap mistake, sizing down
+means a second trip across LA.
+
+**If any price changes, it must be updated in three places**: the pricing tables
+in `index.html`, the `tapeRate` / `cdRate` / `dvdRate` functions in that script,
+and `intake-form.html`. There is no shared source of truth, so grep for the number.
 
 ## Workflow and the intake form
 
