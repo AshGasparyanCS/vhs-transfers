@@ -206,13 +206,22 @@
   #contact{background:#16161a;color:#fff;border-bottom:0}
   #contact h2{color:#fff}
   #contact .lede{color:#c9c6c1}
-  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:8px}
+  /* Email is the longest value by some way, so it gets a wider column and the
+     other two share what's left. Collapses to a single column on narrow screens
+     where each card is full width anyway. */
+  .contact-grid{display:grid;grid-template-columns:1.55fr 1fr 1fr;gap:16px;margin-top:8px}
+  @media (max-width:760px){ .contact-grid{grid-template-columns:1fr} }
   .contact-card{
     background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
     border-radius:12px;padding:22px;
   }
   .contact-card .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#a5a29d;margin-bottom:7px}
-  .contact-card a{color:#fff;font-size:19px;font-weight:650;text-decoration:none;word-break:break-word}
+  /* nowrap keeps the address on one line. The card scrolls rather than wrapping
+     or spilling if a viewport is ever too narrow to hold it. */
+  .contact-card a{color:#fff;font-size:17px;font-weight:650;text-decoration:none;
+                  white-space:nowrap;display:block;overflow-x:auto;
+                  scrollbar-width:none}
+  .contact-card a::-webkit-scrollbar{display:none}
   .contact-card a:hover{text-decoration:underline}
 
   footer{padding:30px 0 44px;text-align:center;color:var(--ink-soft);font-size:14.5px;background:var(--paper)}
