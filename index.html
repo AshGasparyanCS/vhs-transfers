@@ -245,6 +245,13 @@
     background:#16161a;color:#fff;border-radius:14px;padding:24px 26px;
     box-shadow:var(--shadow);
   }
+  .totalcard .ohead{
+    display:flex;justify-content:space-between;gap:14px;
+    padding:0 0 8px;margin-bottom:6px;
+    border-bottom:1px solid rgba(255,255,255,.18);
+    font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:700;color:#a5a29d;
+  }
   .totalcard .orow{display:flex;justify-content:space-between;gap:14px;
                    padding:7px 0;font-size:15.5px;color:#d3d0cb}
   .totalcard .orow span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -566,6 +573,7 @@
     <p class="lede">Fill in the boxes above. This updates as you go.</p>
 
     <div class="totalcard">
+      <div class="ohead"><span></span><span>Totals</span></div>
       <div id="q-lines"></div>
       <div class="sep"></div>
       <div class="big"><span>Estimated total</span><span class="v" id="q-total">&mdash;</span></div>
@@ -782,12 +790,12 @@
     if (tapes) {
       var tr = tapeRate(tapes);
       total += tapes * tr;
-      html += line(tapes + (tapes === 1 ? ' tape' : ' tapes') + ' at ' + money(tr), money(tapes * tr));
+      html += line(tapes + (tapes === 1 ? ' tape, each ' : ' tapes, each ') + money(tr), money(tapes * tr));
     }
     if (discs) {
       var dr = discRate(discs);
       total += discs * dr;
-      html += line(discs + (discs === 1 ? ' disc' : ' discs') + ' at ' + money(dr), money(discs * dr));
+      html += line(discs + (discs === 1 ? ' disc, each ' : ' discs, each ') + money(dr), money(discs * dr));
     }
 
     html += line('14 day download link', 'Free');
