@@ -87,8 +87,7 @@ gh api -X POST repos/AshGasparyanCS/vhs-transfers/pages \
 Discs are much faster than tape since they copy at drive speed rather than
 realtime, which is why they are cheaper per unit despite holding more.
 
-**Add-ons:** customer's own USB drive free, DVD copy of output $8 per disc, and
-supplied drives:
+**Delivery is USB drive only.** Customer's own drive is free, or a supplied one:
 
 | Drive | Cost each | Sells for | Margin | Holds | Fits |
 | --- | --- | --- | --- | --- | --- |
@@ -269,7 +268,14 @@ a marketing push.
   bare URL slot, which is being kept free for something personal.
 - **No free download link delivery option.** This was proposed twice and rejected
   both times. Hosting customer video files on the personal Nextcloud is not
-  wanted. Delivery is USB drive or DVD only, do not suggest it again.
+  wanted. Do not suggest it again.
+- **No burning output to DVD.** Removed deliberately. Authoring a playable
+  DVD-Video disc is real work per order and a data disc full of MP4s would
+  disappoint anyone expecting to put it in a DVD player, so the option is gone
+  rather than ambiguous. **Delivery is USB drive only.**
+  Note that DVDs still appear on the site as an INPUT, the disc archiving service
+  where a customer's own home-burned discs get copied to files. Do not confuse
+  the two and do not remove that.
 - All four drive sizes stay on the site, see the drive section above.
 - The competitor price comparison table was removed from the site on purpose.
   Inviting people to price shop framed the business as the budget option rather
