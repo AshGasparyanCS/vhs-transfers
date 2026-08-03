@@ -47,6 +47,7 @@ Files in the repo:
 | `intake-form.html` | Printable tape intake and receipt form, print to PDF with Ctrl+P |
 | `README.md` | Deploy and update instructions |
 | `Verify-Drive.ps1` | PowerShell drive verification, see below |
+| `New-Delivery.ps1` | PowerShell uploader, makes the 14 day customer link |
 | `PROJECT-PRIMER.md` | This file |
 
 ### Updating the site
@@ -250,6 +251,44 @@ means a second trip across LA.
 **If any price changes, it must be updated in three places**: the pricing tables
 in `index.html`, the `tapeRate` / `cdRate` / `dvdRate` functions in that script,
 and `intake-form.html`. There is no shared source of truth, so grep for the number.
+
+## Delivery: the 14 day Nextcloud link
+
+Free delivery option on the site. Files go to Nextcloud, the customer gets a
+private link, the link dies after 14 days.
+
+**Account details, all verified working as of Aug 2026:**
+
+- Nextcloud account username is **`Memory Archives`**, with a space. It is NOT
+  `deliveries`. The space must be URL encoded as `Memory%20Archives` in every
+  WebDAV path or you get a 401 that looks like a wrong password.
+- Quota is unlimited on that account. The NAS has ~16TB and is nearly empty.
+- Auth is an app password, stored on the OptiPlex at `~/.vhs-nextcloud-creds`,
+  mode 600. **Quote the values in that file**, the space in the username breaks
+  `source` otherwise, which is a confusing failure because the old value silently
+  stays set.
+
+**The share URL needs rewriting, this is the important gotcha.** Nextcloud builds
+the link from whatever host the API request arrived on. Uploading over the LAN
+returns `https://192.168.4.125:30027/s/TOKEN`, which is useless to a customer.
+The token is host independent, so split on `/s/` and rebuild the URL against
+`https://cloud.173842069.xyz`. Verified: the rewritten link returns 200 publicly.
+
+**Upload speed is not a constraint.** Measured 318 Mbps up, so a 20 tape order
+(~90GB) uploads in about 40 minutes. Upload over the LAN address, not the public
+one, to keep the traffic off the Cloudflare tunnel.
+
+**Usage** (on the Windows laptop, config at `%USERPROFILE%\.vhs-delivery.json`):
+
+```powershell
+.\New-Delivery.ps1 -Customer "Sarkisian" -Path "D:\Captures\Sarkisian"
+.\New-Delivery.ps1 -List      # what is on the server and when each link dies
+.\New-Delivery.ps1 -Cleanup   # delete folders whose links already expired
+```
+
+**Expiry disables the link, it does not delete the files.** Without running
+`-Cleanup` periodically the 16TB slowly fills with old orders. Worth a monthly
+reminder.
 
 ## Workflow and the intake form
 
