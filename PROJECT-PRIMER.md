@@ -38,6 +38,7 @@ Files in the repo:
 | `index.html` | The whole site. Single self-contained page, one inline script for the estimator, no external requests |
 | `intake-form.html` | Printable tape intake and receipt form, print to PDF with Ctrl+P |
 | `README.md` | Deploy and update instructions |
+| `Verify-Drive.ps1` | PowerShell drive verification, see below |
 | `PROJECT-PRIMER.md` | This file |
 
 ### Updating the site
@@ -158,13 +159,24 @@ dead relative's wedding and having it be garbage six months later. Buy SanDisk,
 Samsung, PNY or Kingston from Amazon's own listing, not third party sellers, and
 verify every drive on arrival:
 
-```bash
-sudo apt install -y f3
-lsblk                        # find the device, e.g. sdb
-f3probe --time-ops /dev/sdb  # detects fake capacity specifically
+**The work happens on a Windows laptop, so `f3` is not an option**, it is Linux
+only. Use `Verify-Drive.ps1` in this repo instead:
+
+```powershell
+# from the folder containing the script, in PowerShell
+.\Verify-Drive.ps1 -DriveLetter E
 ```
 
-Once per drive when the pack arrives, not per customer.
+It fills the drive with random data recording a SHA256 per chunk, makes you
+unplug and replug to defeat Windows write caching (skipping that step lets a fake
+drive pass by serving reads from RAM), then reads everything back and compares.
+Exits 0 on pass, 1 on fail.
+
+If PowerShell execution policy blocks it:
+`Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
+
+**H2testw** is the long established alternative and does the same job with a GUI.
+Either is fine. Run it once per drive when a pack arrives, not per customer.
 
 ## PAL / SECAM tapes
 
@@ -181,7 +193,11 @@ $400 used. Two things to check when buying: that it outputs native PAL rather
 than converting to NTSC internally (conversion loses quality), and that the
 capture device accepts 576i/25fps input.
 
-**This is a real opportunity, not just a problem.** LA has very large diaspora
+**Decision (Aug 2026): deferred.** Not buying a multi-system deck for now. If
+PAL or SECAM requests start coming in regularly, revisit then. Until that happens
+the site FAQ handles it by asking people to flag overseas tapes up front.
+
+**It remains a real opportunity, not just a problem.** LA has very large diaspora
 communities and almost nobody offers PAL or SECAM conversion locally. It could
 justify a premium rate around $30 to $35 per tape, paying back the deck in about
 ten tapes. Worth revisiting once the NTSC side is running smoothly.
@@ -251,9 +267,12 @@ capture machine is occupied throughout. The site currently promises "most orders
 in under a week", which is honest for one or two customers at a time but breaks
 down if three people call the same week.
 
-Open decision: buy a second VCR and capture setup before advertising hard, or
-soften that turnaround promise on the site. Do not let this go unresolved before
-a marketing push.
+**Decision (Aug 2026): no second VCR** unless traffic genuinely picks up. That
+makes the "most orders in under a week" line on the site the weak point, since
+with one deck a 20 tape order of long tapes is over 100 hours of capture, which
+is more than four days running continuously and that assumes the machine is never
+needed for anything else. Either soften that line or be ready to quote longer
+turnarounds by phone. **This is still unresolved on the live site.**
 
 ## Open tasks
 
