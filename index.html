@@ -161,12 +161,6 @@
   .mediaart{width:60px;height:auto;flex:none}
   .disc-head .mediaart{width:50px}
 
-  /* Centred variant, used by the disc table so the narrow numeric columns do not
-     look crushed and lopsided on a phone. */
-  table.tcenter th,table.tcenter td{text-align:center;vertical-align:middle}
-  table.tcenter th:first-child,table.tcenter td:first-child{text-align:left}
-  table.tcenter .amt{text-align:center}
-
   /* ---------- Drive options, tap to expand ----------
      Collapsed these show only name and price, which is all most people want
      while scrolling on a phone. The capacity detail is one tap away. Scoped
@@ -427,28 +421,26 @@
           <span>Home memories preserved forever.</span>
         </div>
       </div>
-      <div class="scroll">
-      <table class="tcenter">
-        <thead>
-          <tr><th>Type</th><th>Typical Size</th><th>1 &ndash; 9</th><th>10+</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="qty">CD<br>
-              <span style="color:var(--ink-soft);font-size:14.5px;font-weight:400">Audio or data, up to 700MB</span></td>
-            <td>0.3 &ndash; 0.7 GB</td>
-            <td class="amt">$8</td>
-            <td class="amt">$6</td>
-          </tr>
-          <tr>
-            <td class="qty">DVD<br>
-              <span style="color:var(--ink-soft);font-size:14.5px;font-weight:400">Single layer 4.7GB, dual layer 8.5GB</span></td>
-            <td>2 &ndash; 8.5 GB</td>
-            <td class="amt">$10</td>
-            <td class="amt">$8</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="driveopts">
+
+        <details>
+          <summary><span class="dn">CD</span><span class="dp">$8</span></summary>
+          <ul>
+            <li><b>$6 each</b> if you have 10 or more</li>
+            <li>Audio or data discs, up to 700MB</li>
+            <li>About 0.3 to 0.7 GB each once copied</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary><span class="dn">DVD</span><span class="dp">$10</span></summary>
+          <ul>
+            <li><b>$8 each</b> if you have 10 or more</li>
+            <li>Single layer 4.7GB, dual layer 8.5GB</li>
+            <li>About 2 to 8.5 GB each once copied</li>
+          </ul>
+        </details>
+
       </div>
     </div>
 
