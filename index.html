@@ -428,12 +428,13 @@
           <input id="q-tapes" type="number" min="0" max="999" step="1" value="0" inputmode="numeric">
         </div>
         <div class="crow">
-          <label for="q-len">How long are they, roughly?
-            <small>Pick the longest if they're mixed</small></label>
+          <label for="q-len">How long are the recordings?
+            <small>Most people don't know, that's fine</small></label>
           <select id="q-len">
-            <option value="2">About 2 hours</option>
-            <option value="4" selected>About 4 hours</option>
-            <option value="6">About 6 hours</option>
+            <option value="4" selected>Not sure &mdash; use average</option>
+            <option value="2">Mostly about 2 hours</option>
+            <option value="4">Mostly about 4 hours</option>
+            <option value="6">Mostly about 6 hours</option>
           </select>
         </div>
         <div class="crow">
@@ -454,9 +455,11 @@
         <div class="sep"></div>
         <div class="big"><span>Estimated total</span><span class="v" id="q-total">&mdash;</span></div>
         <div class="calc-note">
-          An estimate, not a quote. Tape lengths vary and discs are often not full,
-          so the real figure is usually a little lower. Get in touch and I'll
-          confirm properly.
+          <b>An estimate, not a quote.</b> Most people have no idea how long their
+          recordings run, so this assumes averages: about 4 hours per tape unless
+          you pick otherwise, a completely full CD, and a full single-layer DVD.
+          Everything is rounded up on purpose, so the real total is usually a
+          little lower rather than higher. Get in touch and I'll confirm properly.
         </div>
       </div>
     </div>
@@ -579,11 +582,11 @@
 
 <script>
 (function () {
-  // Storage assumptions. Deliberately a little generous so the recommended
-  // drive is never too small, which is the only failure mode that costs a
-  // second trip across LA.
+  // Storage assumptions, deliberately set at the pessimistic end of each range.
+  // Under-sizing a drive is the only failure mode that costs a second trip
+  // across LA, so every figure here rounds up rather than down.
   var GB_PER_TAPE_HOUR = 1.4;
-  var GB_PER_CD        = 0.5;   // audio ripped lossless, or a part-full data disc
+  var GB_PER_CD        = 0.7;   // a completely full disc, the maximum a CD holds
   var GB_PER_DVD       = 4.7;   // a full single-layer disc
 
   // Usable capacity after formatting, roughly 93% of the nominal figure.
@@ -630,7 +633,10 @@
       return;
     }
 
-    var gb = tapes * hours * GB_PER_TAPE_HOUR + cds * GB_PER_CD + dvds * GB_PER_DVD;
+    // Round the total up to the next whole GB, again erring on the safe side.
+    var gb = Math.ceil(
+      tapes * hours * GB_PER_TAPE_HOUR + cds * GB_PER_CD + dvds * GB_PER_DVD
+    );
 
     // Leave 10% headroom so nobody lands exactly at the limit.
     var pick = null;
@@ -660,7 +666,7 @@
                    money(dvds * dr));
     }
 
-    var gbTxt = (gb < 10 ? gb.toFixed(1) : Math.round(gb)) + ' GB';
+    var gbTxt = gb + ' GB';
 
     if (pick) {
       total += pick.price;

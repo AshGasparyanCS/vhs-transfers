@@ -195,12 +195,20 @@ no dependencies, no network calls, runs entirely client side.
 Assumptions live in constants at the top of that script:
 
 - `GB_PER_TAPE_HOUR = 1.4`
-- `GB_PER_CD = 0.5`
-- `GB_PER_DVD = 4.7`
+- `GB_PER_CD = 0.7` (a completely full disc, the maximum a CD holds)
+- `GB_PER_DVD = 4.7` (a full single-layer disc)
 - Drive usable capacity is about 93% of nominal, and the picker leaves a further
   10% headroom so nobody lands at 100% full
 - The `DRIVES` array holds all five sizes. Anything over what a 256GB drive can
   take falls through to a "get in touch" message rather than a price
+
+**Everything rounds up on purpose.** The per-item sizes sit at the pessimistic
+end of each range, the total is passed through `Math.ceil`, and the tape length
+defaults to "Not sure, use average" at 4 hours because most customers genuinely
+do not know how long their recordings run. The estimator says so in plain text
+under the total. Note that tape length only moves the drive recommendation, not
+the price, since the tape rate is flat regardless of length, so erring long costs
+the customer nothing on the conversion itself.
 
 The headroom is deliberate and slightly conservative. Ten 4 hour tapes come to
 56GB, which technically fits a 64GB drive but would leave it 94% full, so the
