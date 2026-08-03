@@ -48,12 +48,66 @@
   .price-head strong,ol.steps strong{letter-spacing:.04em}
 
   /* ---------- Hero ---------- */
+  /* Full-screen splash. svh rather than vh so mobile browser chrome does not
+     push the buttons below the fold. min-height, not height, so the content can
+     still grow on a short screen instead of being clipped. */
   header{
     background:linear-gradient(170deg,#16161a 0%,#26262e 100%);
     color:#fff;
-    padding:64px 0 56px;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:80px 0 96px;
     position:relative;
     overflow:hidden;
+  }
+  @supports not (height: 100svh){ header{min-height:100vh} }
+
+  .hero{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    align-items:center;
+    gap:44px;
+    width:100%;
+  }
+  .hero-art{display:flex;justify-content:center}
+  /* The cassette is almost entirely black on a dark background, so it needs a
+     halo behind it to read at all, plus a grounding shadow underneath. */
+  .hero-art img{
+    width:100%;max-width:430px;height:auto;
+    filter:drop-shadow(0 0 46px rgba(255,255,255,.16))
+           drop-shadow(0 22px 34px rgba(0,0,0,.55));
+  }
+
+  /* Scroll cue, so a full-height splash still signals there is more below. */
+  .scrollcue{
+    position:absolute;left:50%;bottom:30px;transform:translateX(-50%);
+    width:40px;height:40px;display:grid;place-items:center;
+    border-radius:50%;border:1px solid rgba(255,255,255,.28);
+    text-decoration:none;
+  }
+  .scrollcue span{
+    width:9px;height:9px;margin-top:-3px;
+    border-right:2px solid rgba(255,255,255,.75);
+    border-bottom:2px solid rgba(255,255,255,.75);
+    transform:rotate(45deg);
+    animation:cuebob 1.9s ease-in-out infinite;
+  }
+  @keyframes cuebob{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(3px,3px)}}
+  @media (prefers-reduced-motion:reduce){ .scrollcue span{animation:none} }
+
+  @media (max-width:820px){
+    .hero{grid-template-columns:1fr;gap:26px;text-align:center}
+    .hero .cta-row{justify-content:center}
+    .hero-art{order:-1}
+    .hero-art img{max-width:270px}
+    header{padding:70px 0 88px}
+  }
+  /* Short phones: shrink the art rather than pushing the buttons off screen. */
+  @media (max-height:680px) and (max-width:820px){
+    .hero-art img{max-width:180px}
+    header{padding:56px 0 76px}
   }
   /* Faint scanlines. Decorative only, kept very subtle so it never fights
      with the text for older eyes. */
@@ -337,18 +391,24 @@
 <body>
 
 <header>
-  <div class="wrap">
-    <span class="tag">VHS &amp; VHS-C &rarr; Digital</span>
-    <h1>Your Family Tapes,<br>Saved Before They Fade.</h1>
-    <p class="sub">
-      One price per tape. Any length.<br>
-      Your tapes stay in Los Angeles.
-    </p>
-    <div class="cta-row">
-      <a class="btn btn-main" href="#pricing">See Pricing</a>
-      <a class="btn btn-ghost" href="#how-it-works">How It Works</a>
+  <div class="wrap hero">
+    <div class="hero-copy">
+      <span class="tag">VHS &amp; VHS-C &rarr; Digital</span>
+      <h1>Your Family Tapes,<br>Saved Before They Fade.</h1>
+      <p class="sub">
+        One price per tape. Any length.<br>
+        Your tapes stay in Los Angeles.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-main" href="#pricing">See Pricing</a>
+        <a class="btn btn-ghost" href="#how-it-works">How It Works</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="tape-guts.webp" width="640" height="480" alt="" loading="eager" decoding="async">
     </div>
   </div>
+  <a class="scrollcue" href="#pricing" aria-label="Scroll down to pricing"><span></span></a>
 </header>
 
 <section>
@@ -406,7 +466,7 @@
         </svg>
         <div>
           <strong>Tape Conversion</strong>
-          <span>VHS and VHS-C. Any length, up to 6 hours.</span>
+          <span>VHS and VHS-C.<br>Any length, up to 6 hours.</span>
         </div>
       </div>
       <div class="scroll">
