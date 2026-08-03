@@ -159,7 +159,7 @@
   /* Media artwork sitting alongside the card titles. */
   .price-head{display:flex;align-items:center;gap:16px}
   .mediaart{width:60px;height:auto;flex:none}
-  .disc-head .mediaart{width:48px}
+  .mediaemoji{font-size:44px;line-height:1;flex:none}
 
   /* Centred variant, used by the disc table so the narrow numeric columns do not
      look crushed and lopsided on a phone. */
@@ -359,14 +359,7 @@
 
     <div class="price-card" style="margin-top:22px">
       <div class="price-head disc-head">
-        <svg class="mediaart" viewBox="0 0 74 74" aria-hidden="true">
-          <circle cx="37" cy="37" r="34" fill="#2b2b33" stroke="#6f6f7d" stroke-width="2.5"/>
-          <circle cx="37" cy="37" r="26" fill="none" stroke="#c8102e" stroke-width="7" opacity=".85"/>
-          <circle cx="37" cy="37" r="17" fill="none" stroke="#1e3a8a" stroke-width="5" opacity=".7"/>
-          <circle cx="37" cy="37" r="9" fill="#16161a" stroke="#6f6f7d" stroke-width="1.5"/>
-          <circle cx="37" cy="37" r="4" fill="#f5f2ec"/>
-          <path d="M20 20 A24 24 0 0 1 54 20" fill="none" stroke="#f5f2ec" stroke-width="3" opacity=".55" stroke-linecap="round"/>
-        </svg>
+        <span class="mediaemoji" role="img" aria-label="CD">💿</span>
         <div>
           <strong>Disc Archiving</strong>
           <span>Home memories preserved forever.</span>
