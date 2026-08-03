@@ -428,16 +428,6 @@
           <input id="q-tapes" type="number" min="0" max="999" step="1" value="0" inputmode="numeric">
         </div>
         <div class="crow">
-          <label for="q-len">How long are the recordings?
-            <small>Most people don't know, that's fine</small></label>
-          <select id="q-len">
-            <option value="4" selected>Not sure &mdash; use average</option>
-            <option value="2">Mostly about 2 hours</option>
-            <option value="4">Mostly about 4 hours</option>
-            <option value="6">Mostly about 6 hours</option>
-          </select>
-        </div>
-        <div class="crow">
           <label for="q-cds">CDs
             <small>Home-burned audio or data discs</small></label>
           <input id="q-cds" type="number" min="0" max="999" step="1" value="0" inputmode="numeric">
@@ -455,11 +445,11 @@
         <div class="sep"></div>
         <div class="big"><span>Estimated total</span><span class="v" id="q-total">&mdash;</span></div>
         <div class="calc-note">
-          <b>An estimate, not a quote.</b> Most people have no idea how long their
-          recordings run, so this assumes averages: about 4 hours per tape unless
-          you pick otherwise, a completely full CD, and a full single-layer DVD.
-          Everything is rounded up on purpose, so the real total is usually a
-          little lower rather than higher. Get in touch and I'll confirm properly.
+          <b>An estimate, not a quote.</b> This assumes every tape runs about
+          <b><span id="q-avg">4</span> hours</b>, which is typical but does vary,
+          plus a completely full CD and a full single-layer DVD. Everything is
+          rounded up deliberately, so the real total usually comes in a little
+          lower rather than higher. Get in touch and I'll confirm properly.
         </div>
       </div>
     </div>
@@ -589,6 +579,11 @@
   var GB_PER_CD        = 0.7;   // a completely full disc, the maximum a CD holds
   var GB_PER_DVD       = 4.7;   // a full single-layer disc
 
+  // Customers almost never know how long their recordings run, so the estimator
+  // no longer asks. This figure is written into the disclaimer at runtime, so
+  // changing it here updates the visible text too and the two cannot drift.
+  var AVG_TAPE_HOURS = 4;
+
   // Usable capacity after formatting, roughly 93% of the nominal figure.
   var DRIVES = [
     { gb: 16,  usable: 14.9, price: 10 },
@@ -618,7 +613,6 @@
 
   function update() {
     var tapes = num('q-tapes');
-    var hours = parseFloat(document.getElementById('q-len').value);
     var cds   = num('q-cds');
     var dvds  = num('q-dvds');
 
@@ -635,7 +629,7 @@
 
     // Round the total up to the next whole GB, again erring on the safe side.
     var gb = Math.ceil(
-      tapes * hours * GB_PER_TAPE_HOUR + cds * GB_PER_CD + dvds * GB_PER_DVD
+      tapes * AVG_TAPE_HOURS * GB_PER_TAPE_HOUR + cds * GB_PER_CD + dvds * GB_PER_DVD
     );
 
     // Leave 10% headroom so nobody lands exactly at the limit.
@@ -685,7 +679,9 @@
     totalEl.textContent = money(total);
   }
 
-  var ids = ['q-tapes', 'q-len', 'q-cds', 'q-dvds'];
+  document.getElementById('q-avg').textContent = AVG_TAPE_HOURS;
+
+  var ids = ['q-tapes', 'q-cds', 'q-dvds'];
   for (var i = 0; i < ids.length; i++) {
     var el = document.getElementById(ids[i]);
     el.addEventListener('input', update);

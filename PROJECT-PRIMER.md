@@ -202,11 +202,15 @@ Assumptions live in constants at the top of that script:
 - The `DRIVES` array holds all five sizes. Anything over what a 256GB drive can
   take falls through to a "get in touch" message rather than a price
 
+**There is no tape length question.** Customers almost never know how long their
+recordings run, so asking was friction for an answer that would be guessed anyway.
+Every tape is assumed to be `AVG_TAPE_HOURS` (4). That constant is written into
+the visible disclaimer at runtime via the `q-avg` span, so changing the number in
+one place updates the on-page text too and the two cannot drift apart.
+
 **Everything rounds up on purpose.** The per-item sizes sit at the pessimistic
-end of each range, the total is passed through `Math.ceil`, and the tape length
-defaults to "Not sure, use average" at 4 hours because most customers genuinely
-do not know how long their recordings run. The estimator says so in plain text
-under the total. Note that tape length only moves the drive recommendation, not
+end of each range and the total is passed through `Math.ceil`. The estimator
+states its assumptions in plain text under the total. Note that tape length only moves the drive recommendation, not
 the price, since the tape rate is flat regardless of length, so erring long costs
 the customer nothing on the conversion itself.
 
