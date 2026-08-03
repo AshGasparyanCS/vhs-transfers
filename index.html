@@ -166,6 +166,14 @@
      Collapsed these show only name and price, which is all most people want
      while scrolling on a phone. The capacity detail is one tap away. Scoped
      under .driveopts so the FAQ <details> styling does not leak in. */
+  .dhead{
+    display:flex;justify-content:space-between;gap:14px;
+    padding:14px 26px 8px;
+    font-size:13px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:650;
+    border-bottom:1.5px solid var(--line);
+  }
+  .dhead + details{border-top:0}
   .driveopts details{
     background:transparent;border:0;border-top:1px solid var(--line);
     border-radius:0;padding:0;margin:0;box-shadow:none;
@@ -196,36 +204,50 @@
   .driveopts li::before{content:"";position:absolute;left:-14px;top:8px;
                         width:5px;height:5px;border-radius:50%;background:var(--accent)}
 
-  /* ---------- Estimator ---------- */
-  .calc{
-    background:var(--card);border:1px solid var(--line);border-radius:14px;
-    box-shadow:var(--shadow);overflow:hidden;
+  /* ---------- Inline "how many?" rows inside the pricing cards ---------- */
+  .askrow{
+    display:flex;align-items:center;gap:14px;
+    padding:18px 26px;border-top:2px solid var(--line);background:#fbf9f5;
   }
-  .calc-in{padding:24px 26px}
-  .crow{display:flex;align-items:center;gap:16px;margin-bottom:16px}
-  .crow:last-child{margin-bottom:0}
-  .crow label{flex:1;font-size:16px}
-  .crow label small{display:block;color:var(--ink-soft);font-size:13.5px;margin-top:1px}
-  .crow input[type=number],.crow select{
-    width:104px;flex:none;padding:9px 11px;font-size:16px;
-    border:1px solid var(--line);border-radius:8px;background:var(--paper);
-    color:var(--ink);font-family:inherit;
+  .askrow label{flex:1;font-weight:650;font-size:17px}
+  .askrow input{
+    width:96px;flex:none;padding:12px 12px;font-size:19px;font-weight:700;
+    text-align:center;border:2px solid var(--line);border-radius:9px;
+    background:#fff;color:var(--ink);font-family:inherit;
   }
-  .crow select{width:132px}
-  .crow input:focus,.crow select:focus{outline:2px solid var(--accent);outline-offset:1px}
+  .askrow input:focus{outline:none;border-color:var(--accent)}
 
-  .calc-out{background:#16161a;color:#fff;padding:24px 26px}
-  .calc-out .orow{display:flex;justify-content:space-between;gap:14px;
-                  padding:7px 0;font-size:15.5px;color:#d3d0cb}
-  .calc-out .orow span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
-  .calc-out .sep{border-top:1px solid rgba(255,255,255,.18);margin:9px 0}
-  .calc-out .big{display:flex;justify-content:space-between;align-items:baseline;
-                 gap:14px;font-size:17px;color:#fff;font-weight:650;padding-top:3px}
-  .calc-out .big .v{font-size:27px;font-variant-numeric:tabular-nums}
-  .calc-rec{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
-            border-radius:9px;padding:13px 15px;margin-bottom:16px;font-size:15px;color:#eceae6}
-  .calc-rec b{color:#fff}
-  .calc-note{font-size:13px;color:#a5a29d;margin-top:14px;line-height:1.5}
+  /* ---------- Delivery picker ---------- */
+  .picker{padding:8px 0}
+  .pick{
+    display:flex;align-items:flex-start;gap:14px;
+    padding:16px 26px;cursor:pointer;border-top:1px solid var(--line);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .picker .pick:first-child{border-top:0}
+  .pick input{
+    flex:none;width:22px;height:22px;margin:2px 0 0;accent-color:var(--accent);
+  }
+  .pbody{flex:1;display:block}
+  .ptitle{display:block;font-weight:700;font-size:17px;margin-bottom:3px}
+  .psub{display:block;color:var(--ink-soft);font-size:15px;line-height:1.45}
+  .pprice{flex:none;font-weight:700;font-size:19px;white-space:nowrap;
+          font-variant-numeric:tabular-nums}
+  .pick:has(input:checked){background:#fdf3f4}
+
+  /* ---------- Total card ---------- */
+  .totalcard{
+    background:#16161a;color:#fff;border-radius:14px;padding:24px 26px;
+    box-shadow:var(--shadow);
+  }
+  .totalcard .orow{display:flex;justify-content:space-between;gap:14px;
+                   padding:7px 0;font-size:15.5px;color:#d3d0cb}
+  .totalcard .orow span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .totalcard .sep{border-top:1px solid rgba(255,255,255,.18);margin:9px 0}
+  .totalcard .big{display:flex;justify-content:space-between;align-items:baseline;
+                  gap:14px;font-size:17px;color:#fff;font-weight:650;padding-top:3px}
+  .totalcard .big .v{font-size:30px;font-variant-numeric:tabular-nums}
+  .calc-note{font-size:13px;color:#a5a29d;margin-top:16px;line-height:1.5}
 
   /* ---------- Steps ---------- */
   ol.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:18px}
@@ -384,6 +406,11 @@
         </tbody>
       </table>
       </div>
+      <div class="askrow">
+        <label for="q-tapes">How many VHS tapes?</label>
+        <input id="q-tapes" type="number" min="0" max="999" step="1" value="0"
+               inputmode="numeric" placeholder="0">
+      </div>
     </div>
 
     <div class="price-card" style="margin-top:22px">
@@ -423,6 +450,7 @@
         </div>
       </div>
       <div class="driveopts">
+        <div class="dhead"><span>Disc Type</span><span>Price Each</span></div>
 
         <details>
           <summary><span class="dn">CD</span><span class="dp">$8</span></summary>
@@ -443,6 +471,11 @@
         </details>
 
       </div>
+      <div class="askrow">
+        <label for="q-discs">How many CDs and DVDs?</label>
+        <input id="q-discs" type="number" min="0" max="999" step="1" value="0"
+               inputmode="numeric" placeholder="0">
+      </div>
     </div>
 
     <div class="note" style="margin-top:18px">
@@ -453,18 +486,31 @@
     <div class="price-card" style="margin-top:22px">
       <div class="price-head">
         <strong>Getting Your Files Back</strong>
-        <span>Your videos, ready to keep.</span>
+        <span>Pick one.</span>
       </div>
-      <div class="driveopts">
 
-        <details>
-          <summary><span class="dn">14 Days Link Access</span><span class="dp">Free</span></summary>
-          <ul>
-            <li>I send you a private link to download your videos</li>
-            <li><b>The link only works for 14 days</b></li>
-            <li>Save them to your computer before then, or they are gone</li>
-          </ul>
-        </details>
+      <div class="picker">
+        <label class="pick">
+          <input type="radio" name="delivery" value="link" checked>
+          <span class="pbody">
+            <span class="ptitle">14 Days Link Access</span>
+            <span class="psub">A private link to download your videos. <b>It only works for 14 days.</b></span>
+          </span>
+          <span class="pprice">Free</span>
+        </label>
+
+        <label class="pick">
+          <input type="radio" name="delivery" value="drive">
+          <span class="pbody">
+            <span class="ptitle">Link Access + USB Flash Drive</span>
+            <span class="psub">Same link, plus a high speed drive to keep. I pick the right size for you.</span>
+          </span>
+          <span class="pprice" id="q-driveprice">+$10</span>
+        </label>
+      </div>
+
+      <div class="driveopts">
+        <div class="dhead"><span>Drive Size</span><span>Price</span></div>
 
         <details>
           <summary><span class="dn">16 GB</span><span class="dp">$10</span></summary>
@@ -522,40 +568,18 @@
 
 <section id="estimate">
   <div class="wrap">
-    <h2>Work Out Your Total</h2>
-    <p class="lede">
-      Tell it how many you have. It shows the price.
-    </p>
+    <h2>Your Total</h2>
+    <p class="lede">Fill in the boxes above. This updates as you go.</p>
 
-    <div class="calc">
-      <div class="calc-in">
-        <div class="crow">
-          <label for="q-tapes">VHS or VHS-C tapes
-            <small>Full size or camcorder cassettes</small></label>
-          <input id="q-tapes" type="number" min="0" max="999" step="1" value="0" inputmode="numeric">
-        </div>
-        <div class="crow">
-          <label for="q-cds">CDs
-            <small>Home-burned audio or data discs</small></label>
-          <input id="q-cds" type="number" min="0" max="999" step="1" value="0" inputmode="numeric">
-        </div>
-        <div class="crow">
-          <label for="q-dvds">DVDs
-            <small>Camcorder, wedding or home-burned discs</small></label>
-          <input id="q-dvds" type="number" min="0" max="999" step="1" value="0" inputmode="numeric">
-        </div>
-      </div>
-
-      <div class="calc-out">
-        <div class="calc-rec" id="q-rec">Enter what you have to see an estimate.</div>
-        <div id="q-lines"></div>
-        <div class="sep"></div>
-        <div class="big"><span>Estimated total</span><span class="v" id="q-total">&mdash;</span></div>
-        <div class="calc-note">
-          <b>This is only an estimate.</b> It assumes each tape is about
-          <b><span id="q-avg">4</span> hours</b> long. The real price is usually
-          a little lower, never higher. Call me and I will tell you exactly.
-        </div>
+    <div class="totalcard">
+      <div id="q-lines"></div>
+      <div class="sep"></div>
+      <div class="big"><span>Estimated total</span><span class="v" id="q-total">&mdash;</span></div>
+      <div class="calc-note" id="q-note">
+        <b>This is only an estimate.</b> It assumes each tape is about
+        <b><span id="q-avg">4</span> hours</b> long, and prices every disc at the
+        DVD rate. CDs cost less, so your real price is usually lower, never
+        higher. Call me and I will tell you exactly.
       </div>
     </div>
   </div>
@@ -690,19 +714,14 @@
 
 <script>
 (function () {
-  // Storage assumptions, deliberately set at the pessimistic end of each range.
-  // Under-sizing a drive is the only failure mode that costs a second trip
-  // across LA, so every figure here rounds up rather than down.
+  // Storage assumptions, set at the pessimistic end of each range. Under-sizing
+  // a drive is the only failure that costs a second trip, so everything rounds up.
   var GB_PER_TAPE_HOUR = 1.4;
-  var GB_PER_CD        = 0.7;   // a completely full disc, the maximum a CD holds
-  var GB_PER_DVD       = 4.7;   // a full single-layer disc
+  var AVG_TAPE_HOURS   = 4;     // customers rarely know, so we never ask
+  var GB_PER_DISC      = 4.7;   // a full single-layer DVD
 
-  // Customers almost never know how long their recordings run, so the estimator
-  // no longer asks. This figure is written into the disclaimer at runtime, so
-  // changing it here updates the visible text too and the two cannot drift.
-  var AVG_TAPE_HOURS = 4;
-
-  // Usable capacity after formatting, roughly 93% of the nominal figure.
+  // Usable capacity is about 93% of nominal; the picker leaves 10% headroom on
+  // top so nobody ends up with a drive at 100%.
   var DRIVES = [
     { gb: 16,  usable: 14.9, price: 10 },
     { gb: 32,  usable: 29.8, price: 14 },
@@ -712,11 +731,13 @@
   ];
 
   function tapeRate(n) { return n >= 10 ? 15 : n >= 5 ? 17 : 20; }
-  function cdRate(n)   { return n >= 10 ? 6  : 8; }
-  function dvdRate(n)  { return n >= 10 ? 8  : 10; }
+  // Discs are quoted at the DVD rate. A CD is cheaper, so this can only ever
+  // come in high, which matches how the rest of the estimate behaves.
+  function discRate(n) { return n >= 10 ? 8 : 10; }
 
   function num(id) {
     var el = document.getElementById(id);
+    if (!el) return 0;
     var v = parseInt(el.value, 10);
     if (isNaN(v) || v < 0) v = 0;
     if (v > 999) v = 999;
@@ -724,87 +745,88 @@
   }
 
   function money(n) { return '$' + n.toLocaleString('en-US'); }
-
-  function line(label, value) {
-    return '<div class="orow"><span>' + label + '</span><span>' + value + '</span></div>';
+  function line(l, v) {
+    return '<div class="orow"><span>' + l + '</span><span>' + v + '</span></div>';
+  }
+  function pickDrive(gb) {
+    for (var i = 0; i < DRIVES.length; i++) {
+      if (gb <= DRIVES[i].usable * 0.9) return DRIVES[i];
+    }
+    return null;
+  }
+  function wantsDrive() {
+    var r = document.querySelector('input[name="delivery"]:checked');
+    return r && r.value === 'drive';
   }
 
   function update() {
     var tapes = num('q-tapes');
-    var cds   = num('q-cds');
-    var dvds  = num('q-dvds');
+    var discs = num('q-discs');
 
-    var recEl   = document.getElementById('q-rec');
     var linesEl = document.getElementById('q-lines');
     var totalEl = document.getElementById('q-total');
+    var dpEl    = document.getElementById('q-driveprice');
 
-    if (tapes + cds + dvds === 0) {
-      recEl.textContent = 'Enter what you have to see an estimate.';
-      linesEl.innerHTML = '';
+    var gb    = Math.ceil(tapes * AVG_TAPE_HOURS * GB_PER_TAPE_HOUR + discs * GB_PER_DISC);
+    var drive = pickDrive(gb);
+
+    // Keep the price on the drive option honest even before anything is entered.
+    if (dpEl) {
+      if (tapes + discs === 0)   dpEl.textContent = 'from $10';
+      else if (drive)            dpEl.textContent = '+' + money(drive.price);
+      else                       dpEl.textContent = 'ask me';
+    }
+
+    if (tapes + discs === 0) {
+      linesEl.innerHTML = '<div class="orow"><span>Nothing entered yet</span><span>&mdash;</span></div>';
       totalEl.innerHTML = '&mdash;';
       return;
     }
 
-    // Round the total up to the next whole GB, again erring on the safe side.
-    var gb = Math.ceil(
-      tapes * AVG_TAPE_HOURS * GB_PER_TAPE_HOUR + cds * GB_PER_CD + dvds * GB_PER_DVD
-    );
-
-    // Leave 10% headroom so nobody lands exactly at the limit.
-    var pick = null;
-    for (var i = 0; i < DRIVES.length; i++) {
-      if (gb <= DRIVES[i].usable * 0.9) { pick = DRIVES[i]; break; }
-    }
-
-    var html = '';
-    var total = 0;
+    var html = '', total = 0;
 
     if (tapes) {
       var tr = tapeRate(tapes);
       total += tapes * tr;
-      html += line(tapes + (tapes === 1 ? ' tape' : ' tapes') + ' at ' + money(tr),
-                   money(tapes * tr));
+      html += line(tapes + (tapes === 1 ? ' tape' : ' tapes') + ' at ' + money(tr), money(tapes * tr));
     }
-    if (cds) {
-      var cr = cdRate(cds);
-      total += cds * cr;
-      html += line(cds + (cds === 1 ? ' CD' : ' CDs') + ' at ' + money(cr),
-                   money(cds * cr));
-    }
-    if (dvds) {
-      var dr = dvdRate(dvds);
-      total += dvds * dr;
-      html += line(dvds + (dvds === 1 ? ' DVD' : ' DVDs') + ' at ' + money(dr),
-                   money(dvds * dr));
+    if (discs) {
+      var dr = discRate(discs);
+      total += discs * dr;
+      html += line(discs + (discs === 1 ? ' disc' : ' discs') + ' at ' + money(dr), money(discs * dr));
     }
 
-    var gbTxt = gb + ' GB';
+    html += line('14 day download link', 'Free');
 
-    if (pick) {
-      total += pick.price;
-      html += line(pick.gb + 'GB drive', money(pick.price));
-      recEl.innerHTML = 'About <b>' + gbTxt + '</b> of files, so a <b>' +
-        pick.gb + 'GB drive</b> covers it comfortably. Bringing your own drive? ' +
-        'Knock ' + money(pick.price) + ' off.';
-    } else {
-      recEl.innerHTML = 'About <b>' + gbTxt + '</b> of files, which is more than a ' +
-        'single 256GB drive holds. Get in touch and we\'ll sort out the best way ' +
-        'to hand it all over.';
-      html += line('Drive', 'quoted separately');
+    if (wantsDrive()) {
+      if (drive) {
+        total += drive.price;
+        html += line(drive.gb + 'GB USB drive', money(drive.price));
+      } else {
+        html += line('USB drive', 'more than 256GB, ask me');
+      }
     }
+
+    html += line('About ' + gb + ' GB of video', '');
 
     linesEl.innerHTML = html;
     totalEl.textContent = money(total);
   }
 
-  document.getElementById('q-avg').textContent = AVG_TAPE_HOURS;
+  var avg = document.getElementById('q-avg');
+  if (avg) avg.textContent = AVG_TAPE_HOURS;
 
-  var ids = ['q-tapes', 'q-cds', 'q-dvds'];
-  for (var i = 0; i < ids.length; i++) {
-    var el = document.getElementById(ids[i]);
+  ['q-tapes', 'q-discs'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
     el.addEventListener('input', update);
     el.addEventListener('change', update);
-  }
+  });
+  Array.prototype.forEach.call(
+    document.querySelectorAll('input[name="delivery"]'),
+    function (r) { r.addEventListener('change', update); }
+  );
+
   update();
 })();
 </script>
