@@ -35,7 +35,7 @@ Files in the repo:
 
 | File | What it is |
 | --- | --- |
-| `index.html` | The whole site. Single self-contained page, no JS, no external requests |
+| `index.html` | The whole site. Single self-contained page, one inline script for the estimator, no external requests |
 | `intake-form.html` | Printable tape intake and receipt form, print to PDF with Ctrl+P |
 | `README.md` | Deploy and update instructions |
 | `PROJECT-PRIMER.md` | This file |
@@ -95,8 +95,9 @@ realtime, which is why they are cheaper per unit despite holding more.
 | 32GB | $6.50 | $14 | $7.50 | ~20 hrs | ~5 tapes |
 | 64GB | $9.00 | $18 | $9.00 | ~40 hrs | ~10 tapes |
 | 128GB | $13.00 | $25 | $12.00 | ~85 hrs | ~20 tapes |
+| 256GB | $25.00 | $45 | $20.00 | ~170 hrs | ~40 tapes |
 
-All four are priced at roughly double cost, so the margin is consistent and no
+All five are priced at roughly double cost, so the margin is consistent and no
 size is a trap. The small sizes exist so a one or two tape customer is not being
 sold a $18 drive on top of a $20 job, which looked bad and was the reason the
 full range went on.
@@ -130,11 +131,12 @@ Bulk sources found:
 | 32GB | 10 pack, $65 | $6.50 | $0.20 |
 | 64GB | 5 pack, $45 | $9.00 | $0.14 |
 | 128GB | 5 pack, $65 | $13.00 | $0.10 |
+| 256GB | 3 pack, $75 | $25.00 | $0.098 |
 
 A 5 pack of 32GB at $37 was also seen, which is worse per unit than the 10 pack.
 
 Per GB the big drives win decisively, $0.10 for the 128GB against $0.31 for the
-16GB. **But all four sizes are stocked and listed anyway**, because per-GB value
+16GB. **But all five sizes are stocked and listed anyway**, because per-GB value
 is the wrong metric for a small order. A customer with one 2 hour tape needs
 about 2.8GB, and quoting them $18 for a 64GB drive on top of a $20 job made the
 drive cost as much as the service. The small sizes exist to serve that customer,
@@ -197,6 +199,8 @@ Assumptions live in constants at the top of that script:
 - `GB_PER_DVD = 4.7`
 - Drive usable capacity is about 93% of nominal, and the picker leaves a further
   10% headroom so nobody lands at 100% full
+- The `DRIVES` array holds all five sizes. Anything over what a 256GB drive can
+  take falls through to a "get in touch" message rather than a price
 
 The headroom is deliberate and slightly conservative. Ten 4 hour tapes come to
 56GB, which technically fits a 64GB drive but would leave it 94% full, so the

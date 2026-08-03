@@ -344,7 +344,7 @@
           </tr>
           <tr>
             <td class="qty">USB drive supplied<br>
-              <span style="color:var(--ink-soft);font-size:14.5px;font-weight:400">Yours to keep, four sizes below</span></td>
+              <span style="color:var(--ink-soft);font-size:14.5px;font-weight:400">Yours to keep, five sizes below</span></td>
             <td class="amt">from $10</td>
           </tr>
         </tbody>
@@ -390,7 +390,13 @@
             <td class="qty">128 GB</td>
             <td>85 hours</td>
             <td>about 20 tapes</td>
-            <td class="amt">$25 <span class="save">best value</span></td>
+            <td class="amt">$25 <span class="save">most orders</span></td>
+          </tr>
+          <tr>
+            <td class="qty">256 GB</td>
+            <td>170 hours</td>
+            <td>about 40 tapes</td>
+            <td class="amt">$45</td>
           </tr>
         </tbody>
       </table>
@@ -585,7 +591,8 @@
     { gb: 16,  usable: 14.9, price: 10 },
     { gb: 32,  usable: 29.8, price: 14 },
     { gb: 64,  usable: 59.6, price: 18 },
-    { gb: 128, usable: 119,  price: 25 }
+    { gb: 128, usable: 119,  price: 25 },
+    { gb: 256, usable: 238,  price: 45 }
   ];
 
   function tapeRate(n) { return n >= 10 ? 15 : n >= 5 ? 17 : 20; }
@@ -663,7 +670,7 @@
         'Knock ' + money(pick.price) + ' off.';
     } else {
       recEl.innerHTML = 'About <b>' + gbTxt + '</b> of files, which is more than a ' +
-        'single 128GB drive holds. Get in touch and we\'ll sort out the best way ' +
+        'single 256GB drive holds. Get in touch and we\'ll sort out the best way ' +
         'to hand it all over.';
       html += line('Drive', 'quoted separately');
     }
