@@ -253,11 +253,14 @@
     font-weight:700;color:#a5a29d;
   }
   .totalcard .orow{display:flex;justify-content:space-between;gap:14px;
-                   padding:7px 0;font-size:15.5px;color:#d3d0cb}
+                   padding:7px 0;font-size:15.5px;color:#d3d0cb;
+                   text-transform:uppercase;letter-spacing:.02em}
+  .totalcard .orow b{color:#fff;font-weight:800}
   .totalcard .orow span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
   .totalcard .sep{border-top:1px solid rgba(255,255,255,.18);margin:9px 0}
   .totalcard .big{display:flex;justify-content:space-between;align-items:baseline;
-                  gap:14px;font-size:17px;color:#fff;font-weight:650;padding-top:3px}
+                  gap:14px;font-size:17px;color:#fff;font-weight:650;padding-top:3px;
+                  text-transform:uppercase;letter-spacing:.04em}
   .totalcard .big .v{font-size:30px;font-variant-numeric:tabular-nums}
   .calc-note{font-size:13px;color:#a5a29d;margin-top:16px;line-height:1.5}
 
@@ -790,12 +793,12 @@
     if (tapes) {
       var tr = tapeRate(tapes);
       total += tapes * tr;
-      html += line(tapes + (tapes === 1 ? ' tape, EACH ' : ' tapes, EACH ') + money(tr), money(tapes * tr));
+      html += line(tapes + (tapes === 1 ? ' tape, <b>EACH</b> ' : ' tapes, <b>EACH</b> ') + money(tr), money(tapes * tr));
     }
     if (discs) {
       var dr = discRate(discs);
       total += discs * dr;
-      html += line(discs + (discs === 1 ? ' disc, EACH ' : ' discs, EACH ') + money(dr), money(discs * dr));
+      html += line(discs + (discs === 1 ? ' disc, <b>EACH</b> ' : ' discs, <b>EACH</b> ') + money(dr), money(discs * dr));
     }
 
     html += line('14 day download link', 'Free');
