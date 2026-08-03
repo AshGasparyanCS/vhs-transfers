@@ -790,12 +790,12 @@
     if (tapes) {
       var tr = tapeRate(tapes);
       total += tapes * tr;
-      html += line(tapes + (tapes === 1 ? ' tape, each ' : ' tapes, each ') + money(tr), money(tapes * tr));
+      html += line(tapes + (tapes === 1 ? ' tape, EACH ' : ' tapes, EACH ') + money(tr), money(tapes * tr));
     }
     if (discs) {
       var dr = discRate(discs);
       total += discs * dr;
-      html += line(discs + (discs === 1 ? ' disc, each ' : ' discs, each ') + money(dr), money(discs * dr));
+      html += line(discs + (discs === 1 ? ' disc, EACH ' : ' discs, EACH ') + money(dr), money(discs * dr));
     }
 
     html += line('14 day download link', 'Free');
