@@ -458,30 +458,19 @@
           <span>Home memories preserved forever.</span>
         </div>
       </div>
-      <div class="driveopts">
-        <div class="dhead"><span>Disc Type</span><span>Price Each</span></div>
-
-        <details>
-          <summary><span class="dn">CD</span><span class="dp">$8</span></summary>
-          <ul>
-            <li><b>$6 each</b> if you have 10 or more</li>
-            <li>Audio or data discs, up to 700MB</li>
-            <li>About 0.3 to 0.7 GB each once copied</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary><span class="dn">DVD</span><span class="dp">$10</span></summary>
-          <ul>
-            <li><b>$8 each</b> if you have 10 or more</li>
-            <li>Single layer 4.7GB, dual layer 8.5GB</li>
-            <li>About 2 to 8.5 GB each once copied</li>
-          </ul>
-        </details>
-
+      <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>How many discs</th><th style="text-align:right">Price each</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="qty">1 &ndash; 9 discs</td><td class="amt">$9</td></tr>
+          <tr><td class="qty">10+ discs</td><td class="amt"><span class="save">save 22%</span> $7</td></tr>
+        </tbody>
+      </table>
       </div>
       <div class="askrow">
-        <label for="q-discs">How many CDs and DVDs?</label>
+        <label for="q-discs">How many CDs or DVDs?</label>
         <input id="q-discs" type="number" min="0" max="999" step="1" value="0"
                inputmode="numeric" placeholder="0">
       </div>
@@ -586,9 +575,8 @@
       <div class="big"><span>Estimated total</span><span class="v" id="q-total">&mdash;</span></div>
       <div class="calc-note" id="q-note">
         <b>This is only an estimate.</b> It assumes each tape is about
-        <b><span id="q-avg">4</span> hours</b> long, and prices every disc at the
-        DVD rate. CDs cost less, so your real price is usually lower, never
-        higher. Call me and I will tell you exactly.
+        <b><span id="q-avg">4</span> hours</b> long. The real price is usually a
+        little lower, never higher. Call me and I will tell you exactly.
       </div>
     </div>
   </div>
@@ -741,9 +729,9 @@
   ];
 
   function tapeRate(n) { return n >= 10 ? 15 : n >= 5 ? 17 : 20; }
-  // Discs are quoted at the DVD rate. A CD is cheaper, so this can only ever
-  // come in high, which matches how the rest of the estimate behaves.
-  function discRate(n) { return n >= 10 ? 8 : 10; }
+  // One flat price for any disc. CDs and DVDs used to differ by $2, which was
+  // not worth asking customers to tell them apart, so the distinction was dropped.
+  function discRate(n) { return n >= 10 ? 7 : 9; }
 
   function num(id) {
     var el = document.getElementById(id);

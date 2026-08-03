@@ -90,13 +90,21 @@ gh api -X POST repos/AshGasparyanCS/vhs-transfers/pages \
 
 **Disc archiving** (home-burned discs only, same copyright rule as tapes):
 
-| Type | Typical size | 1 to 9 | 10+ |
-| --- | --- | --- | --- |
-| CD | 0.3 to 0.7 GB | $8 | $6 |
-| DVD | 2 to 8.5 GB (4.7 single layer, 8.5 dual) | $10 | $8 |
+| How many discs | Price each |
+| --- | --- |
+| 1 to 9 | $9 |
+| 10+ | $7 |
+
+**One flat price for any disc, CD or DVD.** They were originally $8/$6 and
+$10/$8 respectively. The distinction was dropped deliberately: the gap was only
+$2, and the customers here are mostly elderly and often cannot reliably tell a
+CD from a DVD, so asking them to count each type separately produced a worse
+number than not asking. One price also removed the problem of a single "how many
+discs" input having to guess a rate. Do not split these apart again.
 
 Discs are much faster than tape since they copy at drive speed rather than
-realtime, which is why they are cheaper per unit despite holding more.
+realtime, which is why they are cheaper per unit despite holding more. Storage
+is still estimated at 4.7GB per disc (a full DVD) so the drive sizing rounds up.
 
 **Delivery is a 14 day download link or a USB drive.** The site has one
 "Getting Your Files Back" block, built as tap-to-expand `<details>` rows rather
