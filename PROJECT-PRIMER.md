@@ -88,7 +88,11 @@ gh api -X POST repos/AshGasparyanCS/vhs-transfers/pages \
 Discs are much faster than tape since they copy at drive speed rather than
 realtime, which is why they are cheaper per unit despite holding more.
 
-**Delivery is USB drive only.** Customer's own drive is free, or a supplied one:
+**Delivery is USB drive only.** The site has a single combined "Getting your
+files back" table: bring-your-own comes first at no charge and points people at
+the estimator to work out the size they need, then the five supplied sizes.
+These were two separate tables and were merged deliberately, do not split them
+again.
 
 | Drive | Cost each | Sells for | Margin | Holds | Fits |
 | --- | --- | --- | --- | --- | --- |
