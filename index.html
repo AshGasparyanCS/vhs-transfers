@@ -159,13 +159,47 @@
   /* Media artwork sitting alongside the card titles. */
   .price-head{display:flex;align-items:center;gap:16px}
   .mediaart{width:60px;height:auto;flex:none}
-  .mediaemoji{font-size:44px;line-height:1;flex:none}
+  .disc-head .mediaart{width:50px}
 
   /* Centred variant, used by the disc table so the narrow numeric columns do not
      look crushed and lopsided on a phone. */
   table.tcenter th,table.tcenter td{text-align:center;vertical-align:middle}
   table.tcenter th:first-child,table.tcenter td:first-child{text-align:left}
   table.tcenter .amt{text-align:center}
+
+  /* ---------- Drive options, tap to expand ----------
+     Collapsed these show only name and price, which is all most people want
+     while scrolling on a phone. The capacity detail is one tap away. Scoped
+     under .driveopts so the FAQ <details> styling does not leak in. */
+  .driveopts details{
+    background:transparent;border:0;border-top:1px solid var(--line);
+    border-radius:0;padding:0;margin:0;box-shadow:none;
+  }
+  .driveopts details:first-child{border-top:0}
+  .driveopts summary{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:16px 26px;cursor:pointer;list-style:none;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .driveopts summary::-webkit-details-marker{display:none}
+  .driveopts summary::after{
+    content:"";float:none;flex:none;order:3;
+    width:9px;height:9px;margin-left:2px;
+    border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);
+    transform:rotate(45deg) translate(-2px,-2px);
+    transition:transform .18s ease;
+  }
+  .driveopts details[open] summary::after{transform:rotate(-135deg) translate(-2px,-2px)}
+  .driveopts details[open]{box-shadow:none}
+  .driveopts summary:hover{background:rgba(0,0,0,.02)}
+  .driveopts .dn{font-weight:700;font-size:18px;flex:1}
+  .driveopts .dp{font-weight:700;font-size:20px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .driveopts ul{margin:0;padding:0 26px 18px 44px;list-style:none}
+  .driveopts li{position:relative;color:var(--ink-soft);font-size:15.5px;
+                margin-bottom:6px;line-height:1.5}
+  .driveopts li:last-child{margin-bottom:0}
+  .driveopts li::before{content:"";position:absolute;left:-14px;top:8px;
+                        width:5px;height:5px;border-radius:50%;background:var(--accent)}
 
   /* ---------- Estimator ---------- */
   .calc{
@@ -358,8 +392,36 @@
     </div>
 
     <div class="price-card" style="margin-top:22px">
-      <div class="price-head">
-        <span class="mediaemoji" role="img" aria-label="CD">💿</span>
+      <div class="price-head disc-head">
+        <svg class="mediaart" viewBox="0 0 74 74" aria-hidden="true">
+          <defs>
+            <radialGradient id="cdface" cx="42%" cy="38%" r="62%">
+              <stop offset="0%"   stop-color="#f2f2f6"/>
+              <stop offset="42%"  stop-color="#b6b6c2"/>
+              <stop offset="68%"  stop-color="#e4e4ec"/>
+              <stop offset="88%"  stop-color="#9d9daa"/>
+              <stop offset="100%" stop-color="#d6d6de"/>
+            </radialGradient>
+            <linearGradient id="cdsheen" x1="8%" y1="6%" x2="92%" y2="94%">
+              <stop offset="0%"   stop-color="#ff2d6f" stop-opacity=".62"/>
+              <stop offset="24%"  stop-color="#ffc93b" stop-opacity=".50"/>
+              <stop offset="46%"  stop-color="#4be08f" stop-opacity=".48"/>
+              <stop offset="68%"  stop-color="#35a8ff" stop-opacity=".52"/>
+              <stop offset="100%" stop-color="#a860ff" stop-opacity=".58"/>
+            </linearGradient>
+            <mask id="cdring">
+              <rect width="74" height="74" fill="#000"/>
+              <circle cx="37" cy="37" r="34" fill="#fff"/>
+              <circle cx="37" cy="37" r="12" fill="#000"/>
+            </mask>
+          </defs>
+          <circle cx="37" cy="37" r="34" fill="url(#cdface)"/>
+          <circle cx="37" cy="37" r="34" fill="url(#cdsheen)" mask="url(#cdring)"/>
+          <circle cx="37" cy="37" r="34" fill="none" stroke="#7a7a88" stroke-width="1.2"/>
+          <circle cx="37" cy="37" r="20" fill="none" stroke="#ffffff" stroke-width=".8" opacity=".35"/>
+          <circle cx="37" cy="37" r="12" fill="#cfcfd8" stroke="#8b8b98" stroke-width="1"/>
+          <circle cx="37" cy="37" r="6"  fill="#16161a" stroke="#8b8b98" stroke-width="1"/>
+        </svg>
         <div>
           <strong>Disc Archiving</strong>
           <span>Home memories preserved forever.</span>
@@ -400,56 +462,57 @@
         <strong>Getting Your Files Back</strong>
         <span>Your videos, ready to keep.</span>
       </div>
-      <div class="scroll">
-      <table>
-        <thead>
-          <tr>
-            <th>Drive</th>
-            <th>Holds about</th>
-            <th>Fits roughly</th>
-            <th style="text-align:right">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="qty">14 Days Link Access<br>
-              <span style="color:var(--ink-soft);font-size:14.5px;font-weight:400">I send you a private link to download your videos. <b>The link only works for 14 days.</b> Save your videos to your computer before then, or they are gone.</span></td>
-            <td>&mdash;</td>
-            <td>&mdash;</td>
-            <td class="amt">Free</td>
-          </tr>
-          <tr>
-            <td class="qty">16 GB</td>
-            <td>10 hours</td>
-            <td>2 to 3 tapes</td>
-            <td class="amt">$10</td>
-          </tr>
-          <tr>
-            <td class="qty">32 GB</td>
-            <td>20 hours</td>
-            <td>about 5 tapes</td>
-            <td class="amt">$14</td>
-          </tr>
-          <tr>
-            <td class="qty">64 GB</td>
-            <td>40 hours</td>
-            <td>about 10 tapes</td>
-            <td class="amt">$18</td>
-          </tr>
-          <tr>
-            <td class="qty">128 GB</td>
-            <td>85 hours</td>
-            <td>about 20 tapes</td>
-            <td class="amt">$25 <span class="save">most orders</span></td>
-          </tr>
-          <tr>
-            <td class="qty">256 GB</td>
-            <td>170 hours</td>
-            <td>about 40 tapes</td>
-            <td class="amt">$45</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="driveopts">
+
+        <details>
+          <summary><span class="dn">14 Days Link Access</span><span class="dp">Free</span></summary>
+          <ul>
+            <li>I send you a private link to download your videos</li>
+            <li><b>The link only works for 14 days</b></li>
+            <li>Save them to your computer before then, or they are gone</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary><span class="dn">16 GB</span><span class="dp">$10</span></summary>
+          <ul>
+            <li>Holds about 10 hours</li>
+            <li>Fits 2 to 3 tapes</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary><span class="dn">32 GB</span><span class="dp">$14</span></summary>
+          <ul>
+            <li>Holds about 20 hours</li>
+            <li>Fits about 5 tapes</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary><span class="dn">64 GB</span><span class="dp">$18</span></summary>
+          <ul>
+            <li>Holds about 40 hours</li>
+            <li>Fits about 10 tapes</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary><span class="dn">128 GB <span class="save">most orders</span></span><span class="dp">$25</span></summary>
+          <ul>
+            <li>Holds about 85 hours</li>
+            <li>Fits about 20 tapes</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary><span class="dn">256 GB</span><span class="dp">$45</span></summary>
+          <ul>
+            <li>Holds about 170 hours</li>
+            <li>Fits about 40 tapes</li>
+          </ul>
+        </details>
+
       </div>
     </div>
 

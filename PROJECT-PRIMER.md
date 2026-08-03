@@ -97,11 +97,14 @@ gh api -X POST repos/AshGasparyanCS/vhs-transfers/pages \
 Discs are much faster than tape since they copy at drive speed rather than
 realtime, which is why they are cheaper per unit despite holding more.
 
-**Delivery is USB drive only.** The site has a single combined "Getting your
-files back" table: bring-your-own comes first at no charge and points people at
-the estimator to work out the size they need, then the five supplied sizes.
-These were two separate tables and were merged deliberately, do not split them
-again.
+**Delivery is a 14 day download link or a USB drive.** The site has one
+"Getting Your Files Back" block, built as tap-to-expand `<details>` rows rather
+than a table. Collapsed each row shows only the name and the price, which is all
+anyone wants while scrolling on a phone; tapping opens the hours and tape count.
+This replaced a 4 column table that was cramped on mobile. Do not turn it back
+into a table, and do not split it into two blocks, both were deliberate.
+
+The rows are the free 14 day link first, then 16 / 32 / 64 / 128 / 256 GB.
 
 | Drive | Cost each | Sells for | Margin | Holds | Fits |
 | --- | --- | --- | --- | --- | --- |
