@@ -8,11 +8,19 @@ Last updated: 2026-08-02
 ## What this is
 
 A small side business converting people's VHS and VHS-C tapes to digital files,
-run out of Los Angeles. One person operation. Pickup and return at the customer's
-door is offered but is NOT advertised as free, the site says "contact for pickup
-and return" so distance can be judged case by case. LA is large and blanket free
-pickup everywhere was too much of a commitment. It is still the main
-differentiator since mail-in competitors physically cannot offer it at all.
+run out of Los Angeles. One person operation.
+
+**The customer drops off and picks up.** This changed twice: it started as free
+door to door pickup, became "contact for pickup and return", and is now
+customer drop off. The site says "Drop Off & Pick Up" and step 2 reads "we pick
+a time and place". The differentiator is still that tapes stay local and are
+never mailed, which mail-in competitors cannot match, but the driving is no
+longer being offered.
+
+**Open question: where do people actually drop off?** The site deliberately does
+not publish an address and should not, this is a home operation. It currently
+says a time and place gets arranged, which is fine to start but will get repetitive
+over the phone if volume grows.
 
 Owner: Ash Gasparyan, GitHub `AshGasparyanCS`.
 
@@ -253,7 +261,7 @@ rows plus terms and signatures. Page 2 is a continuation sheet for orders past
 and both parties sign both. There is a second signature block at the bottom for
 when the tapes are returned and payment is taken.
 
-Writing down every tape together at pickup costs nothing, reassures people a lot,
+Writing down every tape together at drop off costs nothing, reassures people a lot,
 and protects against someone later believing they handed over a tape they didn't.
 
 Terms on the form cover: all tapes returned, quality reflects the original, no
@@ -283,7 +291,7 @@ turnarounds by phone. **This is still unresolved on the live site.**
 1. **Verify the flash drives with `f3probe`** when the 5 pack arrives. A script
    to loop every plugged-in drive and print pass/fail was offered but not written yet.
 2. **Resolve the capacity question** above, second VCR or softer promise.
-3. **Marketing.** Nextdoor is likely the single best channel given the pickup
+3. **Marketing.** Nextdoor is likely the single best channel given the local
    angle and the demographic, one post per neighborhood. Facebook local groups
    second. The site will not rank in search, a brand new github.io subdomain has
    no authority, so essentially all traffic will be from shared links. The Open
@@ -296,9 +304,9 @@ turnarounds by phone. **This is still unresolved on the live site.**
 ## Things already decided, do not re-litigate
 
 - Flat rate per tape, not per hour. See reasoning above.
-- Pickup and return is the lead selling point, ahead of price, but it is offered
-  on a contact-us basis rather than promised free. Do not put "free pickup" back
-  on the site, this was changed deliberately.
+- **Customer drops off and picks up.** Do not put "I collect from your door" or
+  "free pickup" back on the site, both were removed deliberately. The selling
+  point is that tapes stay local and are never mailed, not that anyone drives.
 - Google Voice number rather than personal cell, because the site is public.
 - Commercial and copyrighted tapes are declined, this is standard industry
   practice and it is on both the site FAQ and the intake form.
@@ -318,4 +326,4 @@ turnarounds by phone. **This is still unresolved on the live site.**
 - All four drive sizes stay on the site, see the drive section above.
 - The competitor price comparison table was removed from the site on purpose.
   Inviting people to price shop framed the business as the budget option rather
-  than the convenient local one, and local pickup is the stronger pitch.
+  than the convenient local one, and staying local is the stronger pitch.
