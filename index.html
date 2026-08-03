@@ -141,6 +141,25 @@
   /* Any wide table scrolls inside itself rather than pushing the page sideways. */
   .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
+  /* Bullet lists inside the three trust cards. Kept tight, two or three items. */
+  .point ul{margin:0;padding-left:18px;list-style:none}
+  .point li{position:relative;color:var(--ink-soft);font-size:15.5px;
+            margin-bottom:6px;line-height:1.5}
+  .point li:last-child{margin-bottom:0}
+  .point li::before{content:"";position:absolute;left:-14px;top:8px;
+                    width:5px;height:5px;border-radius:50%;background:var(--accent)}
+
+  /* Media artwork sitting alongside the card titles. */
+  .price-head{display:flex;align-items:center;gap:16px}
+  .mediaart{width:60px;height:auto;flex:none}
+  .disc-head .mediaart{width:48px}
+
+  /* Centred variant, used by the disc table so the narrow numeric columns do not
+     look crushed and lopsided on a phone. */
+  table.tcenter th,table.tcenter td{text-align:center;vertical-align:middle}
+  table.tcenter th:first-child,table.tcenter td:first-child{text-align:left}
+  table.tcenter .amt{text-align:center}
+
   /* ---------- Estimator ---------- */
   .calc{
     background:var(--card);border:1px solid var(--line);border-radius:14px;
@@ -201,6 +220,15 @@
   summary::after{content:"+";float:right;color:var(--accent);font-weight:700;font-size:20px;line-height:1}
   details[open] summary::after{content:"\2212"}
   details p{margin:12px 0 0;color:var(--ink-soft);font-size:16px}
+  details ul,.note ul{margin:12px 0 0;padding-left:18px;list-style:none}
+  details li,.note li{position:relative;color:var(--ink-soft);font-size:15.5px;
+                      margin-bottom:6px;line-height:1.5}
+  details li:last-child,.note li:last-child{margin-bottom:0}
+  details li::before,.note li::before{content:"";position:absolute;left:-14px;top:8px;
+                      width:5px;height:5px;border-radius:50%;background:var(--accent)}
+  .note ul{margin-top:8px}
+  .note li{color:#5c4a12}
+  .note li::before{background:#c9922a}
 
   /* ---------- Contact ---------- */
   #contact{background:#16161a;color:#fff;border-bottom:0}
@@ -238,14 +266,14 @@
 <header>
   <div class="wrap">
     <span class="tag">VHS &amp; VHS-C &rarr; Digital</span>
-    <h1>Your family tapes,<br>saved before they fade.</h1>
+    <h1>Your Family Tapes,<br>Saved Before They Fade.</h1>
     <p class="sub">
       Flat rate per tape, no matter how long it runs, and nothing ever gets
       mailed anywhere. Ask about pickup and return, it's usually no trouble.
     </p>
     <div class="cta-row">
-      <a class="btn btn-main" href="#contact">Get started</a>
-      <a class="btn btn-ghost" href="#pricing">See pricing</a>
+      <a class="btn btn-main" href="#pricing">See Pricing</a>
+      <a class="btn btn-ghost" href="#how-it-works">How It Works</a>
     </div>
   </div>
 </header>
@@ -255,21 +283,28 @@
     <div class="points">
       <div class="point">
         <div class="ico">🚗</div>
-        <h3>Contact for pickup &amp; return</h3>
-        <p>In most cases I can collect the tapes at your door and bring them back
-           the same way. Get in touch and we'll work it out. No shipping either way.</p>
+        <h3>Contact For Pickup &amp; Return</h3>
+        <ul>
+          <li>Collected from your door in most cases</li>
+          <li>Brought back the same way</li>
+          <li>Nothing is ever mailed</li>
+        </ul>
       </div>
       <div class="point">
         <div class="ico">🏷️</div>
-        <h3>One flat price</h3>
-        <p>A six hour tape costs the same as a one hour tape. No per-half-hour
-           meter running while your kid's birthday party plays.</p>
+        <h3>One Flat Price</h3>
+        <ul>
+          <li>A six hour tape costs the same as a one hour tape</li>
+          <li>No per-half-hour meter running</li>
+        </ul>
       </div>
       <div class="point">
         <div class="ico">⚡</div>
-        <h3>Days, not months</h3>
-        <p>Mail-in services routinely take four to eight weeks. Most orders here
-           are done in under a week.</p>
+        <h3>2 To 3 Weeks On Average</h3>
+        <ul>
+          <li>Mail-in services routinely take four to eight weeks</li>
+          <li>Most orders here run 2 to 3 weeks</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -279,13 +314,27 @@
   <div class="wrap">
     <h2>Pricing</h2>
     <p class="lede">
-      Priced per tape, not per hour. Bring more tapes and the price per tape drops.
+      Priced per tape, not per hour.<br>
+      More tapes? More money saved!
     </p>
 
     <div class="price-card">
       <div class="price-head">
-        <strong>Tape conversion</strong>
-        <span>Any length up to 6 hours &middot; VHS and VHS-C</span>
+        <svg class="mediaart" viewBox="0 0 120 74" aria-hidden="true">
+          <rect x="2" y="2" width="116" height="70" rx="6" fill="#2b2b33" stroke="#6f6f7d" stroke-width="2.5"/>
+          <rect x="12" y="12" width="96" height="30" rx="3" fill="#f5f2ec"/>
+          <line x1="18" y1="21" x2="86" y2="21" stroke="#b9b5ad" stroke-width="3" stroke-linecap="round"/>
+          <line x1="18" y1="30" x2="66" y2="30" stroke="#b9b5ad" stroke-width="3" stroke-linecap="round"/>
+          <rect x="26" y="48" width="68" height="18" rx="3" fill="#16161a" stroke="#6f6f7d" stroke-width="1.5"/>
+          <circle cx="42" cy="57" r="6.5" fill="#c8102e"/>
+          <circle cx="78" cy="57" r="6.5" fill="#c8102e"/>
+          <circle cx="42" cy="57" r="2.2" fill="#16161a"/>
+          <circle cx="78" cy="57" r="2.2" fill="#16161a"/>
+        </svg>
+        <div>
+          <strong>Tape Conversion</strong>
+          <span>Any length, up to 6 hours &middot; VHS and VHS-C</span>
+        </div>
       </div>
       <div class="scroll">
       <table>
@@ -302,14 +351,24 @@
     </div>
 
     <div class="price-card" style="margin-top:22px">
-      <div class="price-head">
-        <strong>Disc archiving</strong>
-        <span>Home-recorded CDs and DVDs copied to files before they rot</span>
+      <div class="price-head disc-head">
+        <svg class="mediaart" viewBox="0 0 74 74" aria-hidden="true">
+          <circle cx="37" cy="37" r="34" fill="#2b2b33" stroke="#6f6f7d" stroke-width="2.5"/>
+          <circle cx="37" cy="37" r="26" fill="none" stroke="#c8102e" stroke-width="7" opacity=".85"/>
+          <circle cx="37" cy="37" r="17" fill="none" stroke="#1e3a8a" stroke-width="5" opacity=".7"/>
+          <circle cx="37" cy="37" r="9" fill="#16161a" stroke="#6f6f7d" stroke-width="1.5"/>
+          <circle cx="37" cy="37" r="4" fill="#f5f2ec"/>
+          <path d="M20 20 A24 24 0 0 1 54 20" fill="none" stroke="#f5f2ec" stroke-width="3" opacity=".55" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <strong>Disc Archiving</strong>
+          <span>Home memories preserved forever.</span>
+        </div>
       </div>
       <div class="scroll">
-      <table>
+      <table class="tcenter">
         <thead>
-          <tr><th>Type</th><th>Typical size</th><th style="text-align:right">1 &ndash; 9</th><th style="text-align:right">10+</th></tr>
+          <tr><th>Type</th><th>Typical Size</th><th>1 &ndash; 9</th><th>10+</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -332,15 +391,13 @@
     </div>
 
     <div class="note" style="margin-top:18px">
-      <strong>Discs don't last forever either.</strong> Home-burned CDs and DVDs
-      use a dye layer that fades, and many discs burned in the 2000s are already
-      unreadable. If you have wedding DVDs, camcorder discs, or burned photo CDs
-      sitting in a drawer, they're on the same clock your tapes are.
+      Wedding DVD's, home videos, old CD's they can all be lost in an instant,
+      better to save them while they're around!
     </div>
 
     <div class="price-card" style="margin-top:22px">
       <div class="price-head">
-        <strong>Getting your files back</strong>
+        <strong>Getting Your Files Back</strong>
         <span>Everything comes back on a USB drive</span>
       </div>
       <div class="scroll">
@@ -355,8 +412,8 @@
         </thead>
         <tbody>
           <tr>
-            <td class="qty">Bring your own<br>
-              <span style="color:var(--ink-soft);font-size:14.5px;font-weight:400">Any drive big enough works, check the estimator below for the size you need</span></td>
+            <td class="qty">14 Days Link Access<br>
+              <span style="color:var(--ink-soft);font-size:14.5px;font-weight:400">A private download link. It stops working after 14 days and the files are deleted, so save them to your own computer before then.</span></td>
             <td>&mdash;</td>
             <td>&mdash;</td>
             <td class="amt">Free</td>
@@ -397,17 +454,19 @@
     </div>
 
     <div class="note">
-      <strong>How the estimates work.</strong> Digitized video runs about 1.4GB
-      per hour, and the tape counts assume a typical 4 hour recording. A tape
-      recorded in long-play mode can run 6 hours, so if your tapes are the long
-      kind, size up.
+      <strong>How The Estimates Work</strong>
+      <ul>
+        <li>Digitized video runs about 1.4GB per hour</li>
+        <li>Tape counts assume a typical 4 hour recording</li>
+        <li>Long-play tapes run 6 hours, so size up if yours are the long kind</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <section id="estimate">
   <div class="wrap">
-    <h2>Work out your total</h2>
+    <h2>Work Out Your Total</h2>
     <p class="lede">
       Put in what you've got and this will size the drive and estimate the cost.
       Nothing is sent anywhere, it all runs in your browser.
@@ -449,15 +508,15 @@
   </div>
 </section>
 
-<section>
+<section id="how-it-works">
   <div class="wrap">
-    <h2>How it works</h2>
-    <p class="lede">Four steps, and no shipping labels involved.</p>
+    <h2>How It Works</h2>
+    <p class="lede">Four steps, no shipping labels involved.</p>
     <ol class="steps">
-      <li><strong>Get in touch</strong><span>Text, call, or email with roughly how many tapes you have. I'll confirm the price up front, before anything is picked up.</span></li>
-      <li><strong>We arrange the handover</strong><span>Pickup at your place is usually an option, just ask. Either way you get a written list of every tape, so there's a record on both sides.</span></li>
-      <li><strong>I digitize them</strong><span>Each tape is played and captured start to finish, then checked before it goes on your drive.</span></li>
-      <li><strong>You get it all back</strong><span>Your original tapes, plus your files, organized and labeled however you'd like. Nothing gets kept.</span></li>
+      <li><strong>Get In Touch</strong><span>Text, call or email a rough tape count. I'll confirm the price up front.</span></li>
+      <li><strong>We Arrange The Handover</strong><span>Pickup at your place is usually an option. You get a written list of every tape.</span></li>
+      <li><strong>I Digitize Them</strong><span>Played and captured start to finish, then checked.</span></li>
+      <li><strong>You Get It All Back</strong><span>Your originals plus your files, labeled how you like. Nothing gets kept.</span></li>
     </ol>
   </div>
 </section>
@@ -469,74 +528,87 @@
 
     <details>
       <summary>What file format do I get?</summary>
-      <p>Standard MP4 files, which play on essentially anything: phones, laptops,
-         smart TVs, tablets. Nothing proprietary and no special software required.</p>
+      <ul>
+        <li>Standard MP4 files</li>
+        <li>Play on phones, laptops, smart TVs, tablets</li>
+        <li>No special software needed</li>
+      </ul>
     </details>
 
     <details>
       <summary>How long does it take?</summary>
-      <p>Tapes have to play in real time to be captured, so a six hour tape takes
-         six hours of machine time. Most orders are ready within a week. Large
-         collections may take a bit longer and I'll tell you up front.</p>
+      <ul>
+        <li>2 to 3 weeks on average</li>
+        <li>Tapes play in real time, so a six hour tape takes six hours</li>
+        <li>Large collections take longer, I'll tell you up front</li>
+      </ul>
     </details>
 
     <details>
       <summary>What if my tape is old or damaged?</summary>
-      <p>Old tapes are the norm and most play fine. If a tape is moldy, badly
-         warped, or the tape itself is snapped, I'll let you know before doing
-         anything and you won't be charged for a tape that can't be recovered.</p>
+      <ul>
+        <li>Old tapes are the norm and most play fine</li>
+        <li>Mold, warping or snapped tape, I'll tell you before doing anything</li>
+        <li>No charge for a tape that can't be recovered</li>
+      </ul>
     </details>
 
     <details>
       <summary>Will the video look better than the original?</summary>
-      <p>Honestly, no, and be wary of anyone who says otherwise. VHS is a
-         low-resolution format and digitizing preserves what's on the tape, it
-         doesn't add detail that was never recorded. What it does do is stop any
-         further decay, since tapes genuinely degrade every year they sit in a
-         closet.</p>
+      <ul>
+        <li>No, and be wary of anyone who claims otherwise</li>
+        <li>Digitizing preserves what's there, it can't add detail never recorded</li>
+        <li>It does stop further decay, and tapes degrade every year</li>
+      </ul>
     </details>
 
     <details>
       <summary>Do you take VHS-C camcorder tapes?</summary>
-      <p>Yes. Those are the smaller camcorder cassettes and they're handled at
-         the same price as full size VHS. Just bring them along.</p>
+      <ul>
+        <li>Yes, the smaller camcorder cassettes</li>
+        <li>Same price as full size VHS</li>
+      </ul>
     </details>
 
     <details>
       <summary>My tapes were recorded overseas. Is that a problem?</summary>
-      <p>Mention it when you get in touch. Tapes recorded outside North America
-         are usually PAL or SECAM rather than the NTSC standard used here, and
-         they need a different machine to play back. The cassettes look completely
-         identical, so there's no way to tell by looking. If your tapes came from
-         Europe, Asia, Australia, the Middle East, or the former Soviet Union, just
-         say so up front and I'll let you know what I can do.</p>
+      <ul>
+        <li>Mention it up front, it matters</li>
+        <li>Overseas tapes are usually PAL or SECAM and need a different machine</li>
+        <li>The cassettes look identical, so I can't tell by looking</li>
+      </ul>
     </details>
 
     <details>
       <summary>Can you copy store-bought movies or music?</summary>
-      <p>No. Commercially produced and copyrighted tapes, DVDs and CDs can't be
-         duplicated. This service is for home movies, home recordings, and discs
-         you made yourself.</p>
+      <ul>
+        <li>No, copyrighted tapes, DVDs and CDs can't be duplicated</li>
+        <li>Home movies, home recordings and discs you made yourself only</li>
+      </ul>
     </details>
 
     <details>
       <summary>How do I know my tapes won't get lost?</summary>
-      <p>When I collect them, we write down every tape together and you keep a
-         copy of that list. They go straight to one place, get digitized, and come
-         back to you. They're never boxed up and handed to a courier.</p>
+      <ul>
+        <li>We write down every tape together and you keep a copy</li>
+        <li>They go to one place and come straight back</li>
+        <li>Never boxed up or handed to a courier</li>
+      </ul>
     </details>
 
     <details>
       <summary>What happens to my tapes afterward?</summary>
-      <p>You get every one of them back. Nothing is thrown away, kept, or shipped
-         anywhere.</p>
+      <ul>
+        <li>You get every one of them back</li>
+        <li>Nothing is thrown away, kept or shipped anywhere</li>
+      </ul>
     </details>
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap">
-    <h2>Get started</h2>
+    <h2>Get Started</h2>
     <p class="lede">
       Send a rough tape count and I'll get you a firm price the same day.
     </p>
