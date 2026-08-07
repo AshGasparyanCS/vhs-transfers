@@ -203,29 +203,32 @@ If PowerShell execution policy blocks it:
 **H2testw** is the long established alternative and does the same job with a GUI.
 Either is fine. Run it once per drive when a pack arrives, not per customer.
 
-## PAL / SECAM tapes
+## PAL / SECAM / world formats
 
-**The current VCR is NTSC only and cannot play PAL or SECAM tapes.** This is not
-a tracking issue, the formats differ in line count (525 vs 625), frame rate
-(29.97 vs 25) and tape speed, so an NTSC deck gets no lock at all.
+**RESOLVED, Aug 2026: a multi-system world VCR was bought.** All formats now
+play, PAL, SECAM, MESECAM and NTSC. This was previously the single biggest open
+risk on the project.
 
-Cassettes are physically identical, so there is no way to spot one by looking.
-The site FAQ now asks anyone with overseas tapes to say so up front.
+Why it mattered: the target audience is largely Armenian elders in LA. Armenia
+was Soviet, so tapes recorded there before the mid 90s are SECAM and later ones
+usually PAL. A meaningful share of what walks in would have been unplayable on
+an NTSC-only deck. The old plan was to defer the purchase and warn people in the
+FAQ; that is no longer needed.
 
-Playing them needs a multi-system "world" VCR (Panasonic NV-J700AM, Samsung
-SV-5000W, AIWA HV-MX100 and similar), none still manufactured, roughly $150 to
-$400 used. Two things to check when buying: that it outputs native PAL rather
-than converting to NTSC internally (conversion loses quality), and that the
-capture device accepts 576i/25fps input.
+**It is now a selling point, not a caveat.** The site has a dedicated trust card
+"Tapes From Any Country" listing Armenia, America, Russia and Iran, the tape
+conversion card says "Any country", and the FAQ answers with a plain yes. Almost
+no local competitor offers this, and mail-in services generally do not either.
 
-**Decision (Aug 2026): deferred.** Not buying a multi-system deck for now. If
-PAL or SECAM requests start coming in regularly, revisit then. Until that happens
-the site FAQ handles it by asking people to flag overseas tapes up front.
+Technical background if a deck ever needs replacing: NTSC is 525 lines at
+29.97fps, PAL is 625 at 25fps, and the tape speeds differ, so an NTSC-only deck
+gets no lock at all rather than a degraded picture. Cassettes are physically
+identical, so format cannot be spotted by eye, which is why the intake form has
+a line to note it. When buying, check the deck outputs native PAL rather than
+internally converting to NTSC, and that the capture device accepts 576i/25fps.
 
-**It remains a real opportunity, not just a problem.** LA has very large diaspora
-communities and almost nobody offers PAL or SECAM conversion locally. It could
-justify a premium rate around $30 to $35 per tape, paying back the deck in about
-ten tapes. Worth revisiting once the NTSC side is running smoothly.
+**Open: whether world-format tapes carry a premium.** Nothing on the site says
+they cost extra, so as written they are the same price as any other tape.
 
 ## The estimator on the site
 
