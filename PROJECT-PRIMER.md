@@ -227,8 +227,12 @@ identical, so format cannot be spotted by eye, which is why the intake form has
 a line to note it. When buying, check the deck outputs native PAL rather than
 internally converting to NTSC, and that the capture device accepts 576i/25fps.
 
-**Open: whether world-format tapes carry a premium.** Nothing on the site says
-they cost extra, so as written they are the same price as any other tape.
+**Decided: world-format tapes are the SAME PRICE as any other tape.** No premium.
+The world VCR was acquired free, so there is no hardware cost to recover, and a
+premium would undercut the differentiator by penalising exactly the customers it
+is meant to attract. The FAQ states "same price" explicitly so nobody assumes
+foreign tapes cost more and talks themselves out of calling. Do not add a
+surcharge for PAL/SECAM.
 
 ## The estimator on the site
 
